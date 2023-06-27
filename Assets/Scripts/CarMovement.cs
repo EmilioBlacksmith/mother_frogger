@@ -19,6 +19,7 @@ public class CarMovement : MonoBehaviour
     {
         if (!hasCrashed)
         {
+            //transform.Translate(Vector3.forward * (speed * Time.deltaTime));
             _rigidbody.velocity = transform.forward * speed;
         }
     }
@@ -27,6 +28,8 @@ public class CarMovement : MonoBehaviour
     {
         if (other.gameObject.layer == collisionLayerInt)
         {
+            _rigidbody.AddExplosionForce(300f, transform.position, 200f, 350f, ForceMode.Impulse);
+            Destroy(this.gameObject, 2f);
             hasCrashed = true;
             //_rigidbody.velocity = Vector3.zero;
         }
