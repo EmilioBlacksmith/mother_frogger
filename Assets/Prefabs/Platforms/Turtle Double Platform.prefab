@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 2017350814}
   - component: {fileID: 2017350815}
   m_Layer: 0
-  m_Name: Turtle
+  m_Name: Turtle Double Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -244,7 +244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 749f9c66af4f6554388a0a7d3af1950d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  speed: 10
 --- !u!65 &2017350815
 BoxCollider:
   m_ObjectHideFlags: 0
