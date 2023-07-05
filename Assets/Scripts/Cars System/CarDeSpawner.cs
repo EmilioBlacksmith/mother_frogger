@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Despawner : MonoBehaviour
+public class CarDeSpawner : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {

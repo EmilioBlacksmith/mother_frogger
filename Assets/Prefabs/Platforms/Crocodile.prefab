@@ -18470,7 +18470,7 @@ GameObject:
   - component: {fileID: 3944137314957886634}
   - component: {fileID: 3944137314957886612}
   - component: {fileID: 3944137314957886614}
-  - component: {fileID: 3944137314957886613}
+  - component: {fileID: 9045937639172697586}
   m_Layer: 0
   m_Name: Crocodile
   m_TagString: Untagged
@@ -18507,7 +18507,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 124
   m_CollisionDetection: 0
@@ -18519,7 +18519,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4214536012109564578}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 6.0753174, y: 4.432954, z: 24.126244}
@@ -18545,7 +18545,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &3944137314957886613
+--- !u!114 &9045937639172697586
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -18554,12 +18554,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4214536012109564578}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: daf7949d740bb754aaaedd4173527e57, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b43a817fc8a2c84b9ba101256809522, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
-  hasCrashed: 0
-  collisionLayerInt: 6
+  speed: 15
 --- !u!1 &4216677181643929711
 GameObject:
   m_ObjectHideFlags: 0

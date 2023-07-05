@@ -869,7 +869,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   m_LocalRotation: {x: 0.13588437, y: -0.00032995845, z: 0.000045255958, w: 0.9907247}
-  m_LocalPosition: {x: 4.606802, y: 10.070053, z: -34.39642}
+  m_LocalPosition: {x: 4.606802, y: 10.070053, z: 107.12358}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -944,6 +944,75 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &330846566
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 330846568}
+  - component: {fileID: 330846569}
+  - component: {fileID: 330846570}
+  m_Layer: 0
+  m_Name: Wood Log Water Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &330846568
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330846566}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 116.2, y: -4.81, z: 181}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 30
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &330846569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330846566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9e85fcb2bee80e45a64bfc35ff92d9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisDirection: 1
+  woodLogPlatform: {fileID: 4631011340843560465, guid: 76105792603a5464f9f4becbc67d886b,
+    type: 3}
+  crocodileTrap: {fileID: 4214536012109564578, guid: e3a2333ea882e4c43b6f52b9b1a67ebc,
+    type: 3}
+  timeBetweenSpawn: 3.5
+--- !u!114 &330846570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330846566}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83ddd4c3a9c273948a048dd29fcb8489, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisDirection: 1
+  doublePlatform: {fileID: 2099500563217914719, guid: 262ec99f95d82b140b226821decbc8d3,
+    type: 3}
+  triplePlatform: {fileID: 898205117367665635, guid: 9bb79e84d3a8978459b3e0bdde43c4d2,
+    type: 3}
+  timeBetweenSpawn: 5
 --- !u!1 &332230348
 GameObject:
   m_ObjectHideFlags: 0
@@ -1844,7 +1913,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 611697727}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.6, y: 0, z: -21.02}
+  m_LocalPosition: {x: 4.6, y: 0, z: 120.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5929,7 +5998,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1644089886}
   m_LocalRotation: {x: 0.13588437, y: -0.00032995845, z: 0.000045255958, w: 0.9907247}
-  m_LocalPosition: {x: 4.606802, y: 10.070053, z: -34.39642}
+  m_LocalPosition: {x: 4.606802, y: 10.070053, z: 107.12358}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5937,6 +6006,56 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1644915850
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1644915852}
+  - component: {fileID: 1644915851}
+  m_Layer: 0
+  m_Name: Turtle Water Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1644915851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1644915850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83ddd4c3a9c273948a048dd29fcb8489, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisDirection: 0
+  doublePlatform: {fileID: 2099500563217914719, guid: 262ec99f95d82b140b226821decbc8d3,
+    type: 3}
+  triplePlatform: {fileID: 898205117367665635, guid: 9bb79e84d3a8978459b3e0bdde43c4d2,
+    type: 3}
+  timeBetweenSpawn: 5
+--- !u!4 &1644915852
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1644915850}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -222.6, y: -4.81, z: 171}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 29
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &1663758268
 GameObject:
   m_ObjectHideFlags: 0
@@ -7260,6 +7379,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Turtle Double Platform
       objectReference: {fileID: 0}
+    - target: {fileID: 2099500563217914719, guid: 262ec99f95d82b140b226821decbc8d3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 262ec99f95d82b140b226821decbc8d3, type: 3}
 --- !u!1 &2108252428396390030
@@ -7636,11 +7760,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3944137314957886613, guid: e3a2333ea882e4c43b6f52b9b1a67ebc,
-        type: 3}
-      propertyPath: speed
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 3944137314957886634, guid: e3a2333ea882e4c43b6f52b9b1a67ebc,
         type: 3}
       propertyPath: m_IsKinematic
@@ -7654,10 +7773,10 @@ PrefabInstance:
     - target: {fileID: 4214536012109564578, guid: e3a2333ea882e4c43b6f52b9b1a67ebc,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 3944137314957886613, guid: e3a2333ea882e4c43b6f52b9b1a67ebc, type: 3}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: e3a2333ea882e4c43b6f52b9b1a67ebc, type: 3}
 --- !u!4 &3951177700521581062
 Transform:
@@ -7795,12 +7914,17 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1562059368, guid: 76105792603a5464f9f4becbc67d886b, type: 3}
       propertyPath: speed
-      value: 7.5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4631011340843560465, guid: 76105792603a5464f9f4becbc67d886b,
         type: 3}
       propertyPath: m_Name
       value: Wood Log
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631011340843560465, guid: 76105792603a5464f9f4becbc67d886b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4631011340843560469, guid: 76105792603a5464f9f4becbc67d886b,
         type: 3}
@@ -7815,7 +7939,7 @@ PrefabInstance:
     - target: {fileID: 4631011340843560469, guid: 76105792603a5464f9f4becbc67d886b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.77
+      value: -4.1
       objectReference: {fileID: 0}
     - target: {fileID: 4631011340843560469, guid: 76105792603a5464f9f4becbc67d886b,
         type: 3}
@@ -7870,6 +7994,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Police Spawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 4639346315681142927, guid: 50356edbe6391004d80423450c7e55b3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4639346315681142928, guid: 50356edbe6391004d80423450c7e55b3,
         type: 3}
@@ -8521,6 +8650,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Turtle Triple Platform
       objectReference: {fileID: 0}
+    - target: {fileID: 898205117367665635, guid: 9bb79e84d3a8978459b3e0bdde43c4d2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 898205117367665663, guid: 9bb79e84d3a8978459b3e0bdde43c4d2,
         type: 3}
       propertyPath: m_RootOrder
@@ -8539,7 +8673,7 @@ PrefabInstance:
     - target: {fileID: 898205117367665663, guid: 9bb79e84d3a8978459b3e0bdde43c4d2,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 171.39
+      value: 171
       objectReference: {fileID: 0}
     - target: {fileID: 898205117367665663, guid: 9bb79e84d3a8978459b3e0bdde43c4d2,
         type: 3}
@@ -8660,6 +8794,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Car Spawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 1160301138384903263, guid: 390a4067f65967043b71bd8a4530f9c2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 390a4067f65967043b71bd8a4530f9c2, type: 3}

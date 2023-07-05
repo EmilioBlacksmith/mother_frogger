@@ -25,7 +25,7 @@ public class WaterPlatform : MonoBehaviour
         if (other.gameObject.CompareTag("Player") && other.gameObject.name == "Hip")
         {
             frogParent = other.transform.parent;
-            other.transform.parent = this.transform;
+            other.transform.SetParent(this.transform, true);
         }
     }
 
@@ -33,7 +33,7 @@ public class WaterPlatform : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player") && other.gameObject.name == "Hip")
         {
-            other.transform.parent = frogParent;
+            other.transform.SetParent(frogParent, true);
         }
     }
 }
