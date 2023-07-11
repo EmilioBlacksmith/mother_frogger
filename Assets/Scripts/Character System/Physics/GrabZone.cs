@@ -17,7 +17,7 @@ public class GrabZone : MonoBehaviour
 
     private void Update()
     {
-        if (CrashController.Instance._hasCrash) return;
+        if (CrashController.Instance.hasCrash) return;
         
         if (Input.GetMouseButton(0))
         {

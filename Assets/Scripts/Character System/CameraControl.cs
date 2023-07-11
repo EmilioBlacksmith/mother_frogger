@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
+using HP_System;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -20,6 +21,8 @@ public class CameraControl : MonoBehaviour
 
     private void Update()
     {
+        if(HealthSystem.Instance.IsGameOver) return;
+        
         var position = hipTransform.position;
         transform.position = new Vector3(position.x, 0, position.z);
         CamControl();

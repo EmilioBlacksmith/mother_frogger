@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using HP_System;
 using UnityEngine;
 
 public class MovingCrocodile : MonoBehaviour
@@ -22,7 +23,7 @@ public class MovingCrocodile : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            // make damage and restart frog
+            HealthSystem.Instance.SubstractHealthPoint();
         }
     }
 }
