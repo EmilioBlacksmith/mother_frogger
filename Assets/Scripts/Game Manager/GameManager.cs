@@ -1,83 +1,77 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using HP_System;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour
+namespace Game_Manager
 {
-    private int _score = 0;
-    private int _highScore = 0;
-    private bool _gameOver = false;
-    private bool _endLevel = false;
-    private int _frogsSaved = 0;
-
-    [HideInInspector]public static GameManager Instance;
-
-    [Header("UI")] 
-    [SerializeField] private TextMeshProUGUI scoreText;
-    [SerializeField] private TextMeshProUGUI hiscoreText;
-    [SerializeField] private Slider timerSlider;
-
-    [Header("Timer")] 
-    [SerializeField] private float gameTime;
-    private float timer;
-    [HideInInspector]public bool timerDone;
-
-    [Header("Frogger Saved System")] 
-    [SerializeField] private int frogsToSave;
-
-    private void Start() => RestartTimer();
-    public void GameOver() => _gameOver = true;
-
-    public void SavedFrog()
+    public class GameManager : MonoBehaviour
     {
-        AddScore(50);
-        _frogsSaved++;
-    }
+        private int _score = 0;
+        private int _highScore = 0;
 
-    public void AddScore(int addedScore)
-    {
-        _score += addedScore;
-        scoreText.text = "" + _score;
-    }
+        public static GameManager Instance { get; private set; }
 
-    private void EndLevel()
-    {
-        if (_highScore <= _score)
+        [Header("UI")] 
+        [SerializeField] private TextMeshProUGUI scoreText;
+        [SerializeField] private TextMeshProUGUI hiScoreText;
+        [SerializeField] private Slider timerSlider;
+
+        [Header("Timer")] 
+        [SerializeField] private float gameTime;
+        [HideInInspector]public bool timerDone;
+        private float _timer;
+
+        [Header("Difficulty")] 
+        [SerializeField] private int difficultyLever = 0;
+
+        private void Awake()
         {
-            _highScore = _score;
+            if (Instance != null && Instance != this)
+            {
+                Destroy(this);
+            }
+            else
+            {
+                Instance = this;
+            }
         }
-    }
+    
+        private void Start() => RestartTimer();
 
-    private void RestartTimer()
-    {
-        timerSlider.maxValue = gameTime;
-        timerSlider.value = gameTime;
-        timer = gameTime;
-    }
-
-    private void Awake()
-    {
-        Instance = this;
-    }
-
-    private void Update()
-    {
-        if (_gameOver) return;
-
-        if (timer >= 0 && !_endLevel)
+        public void AddScore(int addedScore)
         {
-            timer -= Time.deltaTime;
-            timerSlider.value = timer;
+            _score += addedScore;
+            scoreText.text = "" + _score;
+        }
+
+        private void EndLevel()
+        {
+            if (_highScore <= _score)
+            {
+                _highScore = _score;
+            }
+        }
+
+        public void RestartTimer()
+        {
+            timerSlider.maxValue = gameTime;
+            timerSlider.value = gameTime;
+            _timer = gameTime;
         }
         
-        if (_frogsSaved >= frogsToSave && !_endLevel)
+        private void Update()
         {
-            _endLevel = true;
-            EndLevel();
+            if (!(_timer > 0) || HealthSystem.Instance.IsGameOver) return;
+            
+            _timer -= Time.deltaTime;
+            timerSlider.value = _timer;
+
+            if (_timer <= 0)
+            {
+                HealthSystem.Instance.SubstractHealthPoint();
+                RestartTimer();
+            }
         }
     }
 }

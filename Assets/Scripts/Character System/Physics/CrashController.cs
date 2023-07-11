@@ -1,8 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Game_Manager;
+using HP_System;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class CrashController : MonoBehaviour
 {
@@ -11,38 +14,46 @@ public class CrashController : MonoBehaviour
     [SerializeField] private float normalSpringForceBody = 4000;
     [SerializeField] private float normalSpringForceHips = 100000;
     [SerializeField] private float crashForceSpring = 50f;
-    [SerializeField] private int healthPoints= 3;
+    [SerializeField] private int crashPoints= 3;
     [SerializeField] private float timeAfterHit = 3;
     
     
-    public bool _hasCrash;
-    public bool _isGameOver;
-    public bool _recovering;
+    public bool hasCrash;
+    public bool recovering;
     public static CrashController Instance { get; private set; }
 
     private void Start()
     {
         Instance = this;
-        _hasCrash = false;
-        _isGameOver = false;
-        _recovering = false;
+        hasCrash = false;
+        recovering = false;
     }
 
     private void Update()
     {
-        if (healthPoints <= 0 && !_isGameOver)
+        if (crashPoints <= 0 && !HealthSystem.Instance.IsGameOver)
         {
-            _isGameOver = true;
-            GameManager.Instance.GameOver();
+            Restart();
         }
+        
+    }
+
+    private void Restart()
+    {
+        HealthSystem.Instance.SubstractHealthPoint();
+    }
+
+    public void RestartCrashPoints()
+    {
+        crashPoints = 3;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Car") || _hasCrash || _isGameOver || _recovering) return;
+        if (!other.CompareTag("Car") || hasCrash || HealthSystem.Instance.IsGameOver || crashPoints <= 0 || recovering) return;
         
-        _hasCrash = true;
-        _recovering = true;
+        hasCrash = true;
+        recovering = true;
             
         foreach (var joint in bodyJoints)
         {
@@ -61,17 +72,16 @@ public class CrashController : MonoBehaviour
         hipJoint.angularXDrive = hipsJointDriveX;
         hipJoint.angularYZDrive = hipsJointDriveYZ;
 
-        healthPoints--;
-
+        crashPoints--;
+        
         StartCoroutine(WaitTillFixed());
     }
 
     private IEnumerator WaitTillFixed()
     {
-        yield return new WaitForSeconds(timeAfterHit);
+        if(crashPoints > 0) yield return new WaitForSeconds(timeAfterHit);
+        if(HealthSystem.Instance.IsGameOver) yield break;
 
-        if (_isGameOver) yield break;
-        
         foreach (var joint in bodyJoints)
         {
             JointDrive jointDriveX = joint.angularXDrive;
@@ -89,7 +99,7 @@ public class CrashController : MonoBehaviour
         hipJoint.angularXDrive = hipsJointDriveX;
         hipJoint.angularYZDrive = hipsJointDriveYZ;
 
-        _hasCrash = false;
+        hasCrash = false;
 
         StartCoroutine(Recovering());
     }
@@ -98,8 +108,8 @@ public class CrashController : MonoBehaviour
     {
         yield return new WaitForSeconds(timeAfterHit);
         
-        if(_isGameOver) yield break;
+        if(HealthSystem.Instance.IsGameOver) yield break;
 
-        _recovering = false;
+        recovering = false;
     }
 }

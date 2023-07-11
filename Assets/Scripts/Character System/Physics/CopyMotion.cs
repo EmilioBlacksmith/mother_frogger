@@ -18,7 +18,7 @@ public class CopyMotion : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!CrashController.Instance._hasCrash)
+        if (!CrashController.Instance.hasCrash)
         {
             this.m_ConfigurableJoint.targetRotation = CopyRotation();
         }

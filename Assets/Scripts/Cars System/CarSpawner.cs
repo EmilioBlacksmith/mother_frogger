@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using HP_System;
 using UnityEngine;
 
 public class CarSpawner : MonoBehaviour
@@ -21,7 +22,7 @@ public class CarSpawner : MonoBehaviour
 
     private void Update()
     {
-        if (CrashController.Instance._isGameOver) return;
+        if(HealthSystem.Instance.IsGameOver) return;
         
         if (_timer >= timeBetweenSpawn)
         {
