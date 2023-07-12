@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Animator targetAnimator;
     [SerializeField] private Transform cameraTarget;
 
-    private bool walk = false;
+    private bool _walk = false;
     private float _timer = 0f;
     private readonly float _timeBetweenSteps = 1f;
     private static readonly int Walk = Animator.StringToHash("Walk");
@@ -41,14 +41,14 @@ public class PlayerController : MonoBehaviour
 
             this.hip.AddForce(moveDirection.normalized * this.speed, ForceMode.Acceleration);
 
-            this.walk = true;
+            this._walk = true;
         }  else {
-            this.walk = false;
+            this._walk = false;
         }
 
-        this.targetAnimator.SetBool(Walk, this.walk);
+        this.targetAnimator.SetBool(Walk, this._walk);
 
-        switch (walk)
+        switch (_walk)
         {
             case true when _timer <= _timeBetweenSteps:
                 _timer += Time.deltaTime;

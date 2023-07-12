@@ -23,7 +23,9 @@ namespace Game_Manager
         private float _timer;
 
         [Header("Difficulty")] 
-        [SerializeField] private int difficultyLever = 0;
+        [SerializeField] private int difficultyLever = 1;
+
+        public int DifficultyLevel() => difficultyLever;
 
         private void Awake()
         {
@@ -72,6 +74,13 @@ namespace Game_Manager
                 HealthSystem.Instance.SubstractHealthPoint();
                 RestartTimer();
             }
+        }
+
+        public void NextLevel()
+        {
+            HealthSystem.Instance.NextLevel();
+            difficultyLever++;
+            difficultyLever = Mathf.Clamp(difficultyLever, 1, 5);
         }
     }
 }
