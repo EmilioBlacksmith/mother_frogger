@@ -1,3 +1,4 @@
+using Game_Manager;
 using HP_System;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -15,9 +16,10 @@ namespace Water.Spawner_and_DeSpawner
         [SerializeField] private PlatformDirection thisDirection;
         [SerializeField] private GameObject doublePlatform;
         [SerializeField] private GameObject triplePlatform;
-        [SerializeField] private float timeBetweenSpawn;
+        [SerializeField] private float startingTimeBetweenSpawn = 10;
         //[SerializeField] private float lifeSpan = 10;
     
+        private float _timeBetweenSpawn;
         private int _randomNum;
         private float _timer = 0;
         private readonly Quaternion _inverseRotationDirection = Quaternion.Euler(0,-90,0);
@@ -27,6 +29,7 @@ namespace Water.Spawner_and_DeSpawner
         private void Start()
         {
             _randomNum = (Random.Range(0, 5000))%2;
+            _timeBetweenSpawn = startingTimeBetweenSpawn;
         
             _thisDirectionRotation = thisDirection switch
             {
@@ -50,8 +53,11 @@ namespace Water.Spawner_and_DeSpawner
         private void Update()
         {
             if(HealthSystem.Instance.IsGameOver) return;
+            
+            _timeBetweenSpawn = startingTimeBetweenSpawn - (GameManager.Instance.DifficultyLevel() * 2f);
+            _timeBetweenSpawn = Mathf.Clamp(_timeBetweenSpawn, 2f, 10);
         
-            if (_timer >= timeBetweenSpawn)
+            if (_timer >= _timeBetweenSpawn)
             {
                 _randomNum = (Random.Range(0, 5000))%2;
                 switch (_randomNum)

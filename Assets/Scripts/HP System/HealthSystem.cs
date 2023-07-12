@@ -43,7 +43,6 @@ namespace HP_System
             if (currentHealthPoints <= 0)
             {
                 _gameOver = true;
-                
             }else
             { 
                 player.transform.position = startingPosition.position;
@@ -53,5 +52,11 @@ namespace HP_System
             }
         }
 
+        public void NextLevel()
+        {
+            player.transform.position = startingPosition.position;
+            CrashController.Instance.RestartCrashPoints();
+            GameManager.Instance.RestartTimer();
+        }
     }
 }

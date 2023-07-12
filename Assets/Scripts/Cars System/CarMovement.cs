@@ -1,18 +1,22 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Game_Manager;
 using UnityEngine;
 
 public class CarMovement : MonoBehaviour
 {
-    [SerializeField] private float speed;
+    [SerializeField] private float startingSpeed = 50;
     [SerializeField] private bool hasCrashed = false;
     [SerializeField] private int collisionLayerInt;
+    
     private Rigidbody _rigidbody;
+    private float _speed;
 
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        _speed = startingSpeed;
     }
 
     private void FixedUpdate()
@@ -20,7 +24,7 @@ public class CarMovement : MonoBehaviour
         if (!hasCrashed)
         {
             //transform.Translate(Vector3.forward * (speed * Time.deltaTime));
-            _rigidbody.velocity = transform.forward * speed;
+            _rigidbody.velocity = transform.forward * (_speed + (GameManager.Instance.DifficultyLevel() * 50));
         }
     }
 
