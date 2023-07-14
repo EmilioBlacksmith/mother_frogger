@@ -82,6 +82,12 @@ namespace Game_Manager
             }
         }
 
+        public void GoalSpotCrossed()
+        {
+            HealthSystem.Instance.NextLevel();
+            playerHip.SetParent(playerParent, true);
+        }
+
         public void NextLevel()
         {
             HealthSystem.Instance.NextLevel();
