@@ -6,17 +6,34 @@ namespace Cars_System
 {
     public class CarSpawner : MonoBehaviour
     {
+        private enum CarDirection
+        {
+            Normal,
+            Inverse
+        };
+
+        [SerializeField] private CarDirection thisDirection;
         [SerializeField] private GameObject objectToSpawn;
         [SerializeField] private float lifeSpan = 10;
         [SerializeField] private float startingTimeBetweenSpawn = 7.5f;
 
         private float _timeBetweenSpawn;
         private float _timer = 0;
-        private readonly Quaternion _rotationDirection = Quaternion.Euler(0,90,0);
+        
+        private readonly Quaternion _inverseRotationDirection = Quaternion.Euler(0,-90,0);
+        private readonly Quaternion _normalRotationDirection = Quaternion.Euler(0,90,0);
+        private Quaternion _thisDirectionRotation = Quaternion.Euler(0,90,0);
 
         private void Start()
         {
-            var newObj = Instantiate(objectToSpawn, transform.position, _rotationDirection);
+            _thisDirectionRotation = thisDirection switch
+            {
+                CarDirection.Normal => _normalRotationDirection,
+                CarDirection.Inverse => _inverseRotationDirection,
+                _ => _thisDirectionRotation
+            };
+            
+            var newObj = Instantiate(objectToSpawn, transform.position, _thisDirectionRotation);
             Destroy(newObj, lifeSpan);
             _timer = 0;
             _timeBetweenSpawn = startingTimeBetweenSpawn;
@@ -31,7 +48,7 @@ namespace Cars_System
         
             if (_timer >= _timeBetweenSpawn)
             {
-                var newObj = Instantiate(objectToSpawn, transform.position, _rotationDirection);
+                var newObj = Instantiate(objectToSpawn, transform.position, _thisDirectionRotation);
                 Destroy(newObj, lifeSpan);
                 _timer = 0;
             }
