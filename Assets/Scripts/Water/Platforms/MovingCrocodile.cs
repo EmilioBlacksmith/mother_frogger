@@ -1,33 +1,33 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Game_Manager;
 using HP_System;
 using UnityEngine;
 
-public class MovingCrocodile : MonoBehaviour
+namespace Water.Platforms
 {
-
-    [SerializeField] private float startingSpeed = 10;
-    private float _speed;
-    private Rigidbody _rigidbody;
-
-    private void Start()
+    public class MovingCrocodile : MonoBehaviour
     {
-        _rigidbody = GetComponent<Rigidbody>();
-        _speed = startingSpeed;
-    }
 
-    private void FixedUpdate()
-    {
-        transform.Translate(Vector3.forward * (_speed + (GameManager.Instance.DifficultyLevel() / 2) * Time.deltaTime));
-    }
+        [SerializeField] private float startingSpeed = 10;
+        private float _speed;
+        private Rigidbody _rigidbody;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
+        private void Start()
         {
-            HealthSystem.Instance.SubstractHealthPoint();
+            _rigidbody = GetComponent<Rigidbody>();
+            _speed = startingSpeed;
+        }
+
+        private void FixedUpdate()
+        {
+            transform.Translate(Vector3.forward * (_speed + (GameManager.Instance.DifficultyLevel() / 2f) * Time.deltaTime));
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.CompareTag("Player"))
+            {
+                HealthSystem.Instance.SubstractHealthPoint();
+            }
         }
     }
 }
