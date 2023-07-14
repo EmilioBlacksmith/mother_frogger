@@ -1,6 +1,7 @@
 using HP_System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Game_Manager
@@ -24,6 +25,10 @@ namespace Game_Manager
 
         [Header("Difficulty")] 
         [SerializeField] private int difficultyLever = 1;
+
+        [Header("Player Parenting")] 
+        [SerializeField] private Transform playerParent;
+        [SerializeField] private Transform playerHip;
 
         public int DifficultyLevel() => difficultyLever;
 
@@ -60,6 +65,7 @@ namespace Game_Manager
             timerSlider.maxValue = gameTime;
             timerSlider.value = gameTime;
             _timer = gameTime;
+            playerHip.SetParent(playerParent, true);
         }
         
         private void Update()
@@ -81,6 +87,7 @@ namespace Game_Manager
             HealthSystem.Instance.NextLevel();
             difficultyLever++;
             difficultyLever = Mathf.Clamp(difficultyLever, 1, 5);
+            playerHip.SetParent(playerParent, true);
         }
     }
 }
