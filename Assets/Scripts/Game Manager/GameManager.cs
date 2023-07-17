@@ -3,13 +3,13 @@ using Game_Manager.Goal_Spots_System;
 using Game_Manager.Score_System;
 using Game_Manager.Timer_System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Game_Manager
 {
     [RequireComponent(typeof(TimerManager), typeof(GoalSpotsManager), typeof(ScoreSystem))]
     public class GameManager : MonoBehaviour
     {
-
         public static GameManager Instance { get; private set; }
 
         private int _difficultyLever = 1;
@@ -48,11 +48,12 @@ namespace Game_Manager
 
         public void GoalSpotCrossed()
         {
+            ScoreSystem.FrogCrossed();
             HealthSystem.Instance.NextLevel();
             RestartParenting();
         }
 
-        public void NextLevel()
+        public void NextDifficulty()
         {
             HealthSystem.Instance.NextLevel();
             _difficultyLever++;

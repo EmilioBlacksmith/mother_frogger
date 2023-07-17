@@ -15,5 +15,11 @@ namespace Game_Manager.Score_System
             _score += addedScore;
             scoreText.text = "" + _score;
         }
+
+        public void FrogCrossed()
+        {
+            AddScore(50);
+            AddScore((int)(GameManager.Instance.TimerManager.TimeLeft()/2) * 10);
+        }
     }
 }

@@ -12,6 +12,8 @@ namespace Game_Manager.Timer_System
         private bool _timerDone;
         private float _timer;
 
+        public float TimeLeft() => _timer;
+
         private void Start() => RestartTimer();
         
         private void Update()

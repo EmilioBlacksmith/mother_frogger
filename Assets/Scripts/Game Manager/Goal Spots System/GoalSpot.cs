@@ -1,8 +1,7 @@
 using Character_System.HP_System;
-using Game_Manager;
 using UnityEngine;
 
-namespace Goal_Spots_System
+namespace Game_Manager.Goal_Spots_System
 {
     public class GoalSpot : MonoBehaviour
     {

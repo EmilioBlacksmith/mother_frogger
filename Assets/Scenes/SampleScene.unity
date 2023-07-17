@@ -3541,55 +3541,6 @@ Transform:
   m_Father: {fileID: 878969023}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &693346254
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 693346255}
-  - component: {fileID: 693346256}
-  m_Layer: 0
-  m_Name: Goal Spots Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &693346255
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 693346254}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 39.457924, y: -28.62651, z: -43.04356}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1051758270}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &693346256
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 693346254}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22c3ef7fb33b47868d277eda8f3aba67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  goalSpotsArray:
-  - {fileID: 439837763}
-  - {fileID: 584470217}
-  - {fileID: 2015511391}
-  - {fileID: 1165517090}
 --- !u!1 &703188849
 GameObject:
   m_ObjectHideFlags: 0
@@ -5066,7 +5017,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &954143648
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5134,7 +5085,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1518830624}
         m_TargetAssemblyTypeName: Game_Manager.GameManager, Assembly-CSharp
-        m_MethodName: NextLevel
+        m_MethodName: NextDifficulty
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6097,7 +6048,6 @@ Transform:
   - {fileID: 832575519}
   - {fileID: 1099740255}
   - {fileID: 1518830625}
-  - {fileID: 693346255}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6821,7 +6771,7 @@ GameObject:
   - component: {fileID: 1185877659}
   - component: {fileID: 1185877660}
   m_Layer: 5
-  m_Name: Timer
+  m_Name: Timer Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8553,6 +8503,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1518830625}
   - component: {fileID: 1518830624}
+  - component: {fileID: 1518830627}
+  - component: {fileID: 1518830626}
+  - component: {fileID: 1518830628}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -8572,12 +8525,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eebd2c9642cd1b1449d7b31768f897ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 1341715795}
-  hiScoreText: {fileID: 0}
-  timerSlider: {fileID: 1185877660}
-  gameTime: 90
-  timerDone: 0
-  difficultyLever: 1
   playerParent: {fileID: 1574676229}
   playerHip: {fileID: 148335204}
 --- !u!4 &1518830625
@@ -8595,6 +8542,50 @@ Transform:
   m_Father: {fileID: 1051758270}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1518830626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518830623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22c3ef7fb33b47868d277eda8f3aba67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goalSpotsArray:
+  - {fileID: 439837763}
+  - {fileID: 584470217}
+  - {fileID: 2015511391}
+  - {fileID: 1165517090}
+--- !u!114 &1518830627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518830623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d31dc066e05f4884783996d35d0e93a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerSlider: {fileID: 1185877660}
+  gameTime: 90
+--- !u!114 &1518830628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518830623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a47a3ee4cb9cc746a9b73cd3cede38b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 1341715795}
 --- !u!1 &1551958176
 GameObject:
   m_ObjectHideFlags: 0

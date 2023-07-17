@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using Goal_Spots_System;
 using UnityEngine;
 
 namespace Game_Manager.Goal_Spots_System
@@ -14,7 +13,7 @@ namespace Game_Manager.Goal_Spots_System
 
             if (totalTrue <= 0)
             {
-                GameManager.Instance.NextLevel();
+                GameManager.Instance.NextDifficulty();
                 foreach (var goal in goalSpotsArray)
                 {
                     goal.RestartGoalSpot();
