@@ -1,31 +1,17 @@
 using Character_System.HP_System;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Game_Manager
+namespace Game_Manager.Timer_System
 {
     public class TimerManager : MonoBehaviour
     {
-        public static TimerManager Instance { get; private set; }
         
         [SerializeField] private Slider timerSlider;
         [SerializeField] private float gameTime;
         private bool _timerDone;
         private float _timer;
-        
-        private void Awake()
-        {
-            if (Instance != null && Instance != this)
-            {
-                Destroy(this);
-            }
-            else
-            {
-                Instance = this;
-            }
-        }
-        
+
         private void Start() => RestartTimer();
         
         private void Update()

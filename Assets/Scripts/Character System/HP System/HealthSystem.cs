@@ -1,5 +1,6 @@
 using Character_System.Physics;
 using Game_Manager;
+using Game_Manager.Timer_System;
 using UnityEngine;
 
 namespace Character_System.HP_System
@@ -45,7 +46,7 @@ namespace Character_System.HP_System
             { 
                 player.transform.position = startingPosition.position;
                 CrashController.Instance.RestartCrashPoints();
-                TimerManager.Instance.RestartTimer();
+                GameManager.Instance.TimerManager.RestartTimer();
                 
             }
         }
@@ -54,7 +55,7 @@ namespace Character_System.HP_System
         {
             player.transform.position = startingPosition.position;
             CrashController.Instance.RestartCrashPoints();
-            TimerManager.Instance.RestartTimer();
+            GameManager.Instance.TimerManager.RestartTimer();
         }
     }
 }

@@ -1,31 +1,37 @@
 using Character_System.HP_System;
-using Goal_Spots_System;
-using TMPro;
+using Game_Manager.Goal_Spots_System;
+using Game_Manager.Score_System;
+using Game_Manager.Timer_System;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Game_Manager
 {
-    [RequireComponent(typeof(TimerManager), typeof(GoalSpotsManager))]
+    [RequireComponent(typeof(TimerManager), typeof(GoalSpotsManager), typeof(ScoreSystem))]
     public class GameManager : MonoBehaviour
     {
-        private int _score = 0;
-        private int _highScore = 0;
 
         public static GameManager Instance { get; private set; }
 
-        [Header("UI")] 
-        [SerializeField] private TextMeshProUGUI scoreText;
-        private float _timer;
-
-        [Header("Difficulty")] 
-        [SerializeField] private int difficultyLever = 1;
+        private int _difficultyLever = 1;
 
         [Header("Player Parenting")] 
         [SerializeField] private Transform playerParent;
         [SerializeField] private Transform playerHip;
+        
+        public int DifficultyLevel() => _difficultyLever;
+        
+        // Manager Subsystems
+        public ScoreSystem ScoreSystem { get; private set; }
+        public TimerManager TimerManager { get; private set; }
+        public GoalSpotsManager GoalSpotsManager { get; private set; }
 
-        public int DifficultyLevel() => difficultyLever;
+        private void Start()
+        {
+            TimerManager = GetComponent<TimerManager>();
+            ScoreSystem = GetComponent<ScoreSystem>();
+            GoalSpotsManager = GetComponent<GoalSpotsManager>();
+        }
+
         public void RestartParenting() => playerHip.SetParent(playerParent, true);
 
         private void Awake()
@@ -40,20 +46,6 @@ namespace Game_Manager
             }
         }
 
-        public void AddScore(int addedScore)
-        {
-            _score += addedScore;
-            scoreText.text = "" + _score;
-        }
-
-        private void EndLevel()
-        {
-            if (_highScore <= _score)
-            {
-                _highScore = _score;
-            }
-        }
-
         public void GoalSpotCrossed()
         {
             HealthSystem.Instance.NextLevel();
@@ -63,8 +55,8 @@ namespace Game_Manager
         public void NextLevel()
         {
             HealthSystem.Instance.NextLevel();
-            difficultyLever++;
-            difficultyLever = Mathf.Clamp(difficultyLever, 1, 5);
+            _difficultyLever++;
+            _difficultyLever = Mathf.Clamp(_difficultyLever, 1, 5);
             RestartParenting();
         }
     }

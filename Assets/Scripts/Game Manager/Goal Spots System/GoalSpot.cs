@@ -43,7 +43,7 @@ namespace Goal_Spots_System
             spotRenderer.material = notAvailableMaterial;
             insideFrog.SetActive(true);
             GameManager.Instance.GoalSpotCrossed();
-            GoalSpotsManager.Instance.CheckAllSpots();
+            GameManager.Instance.GoalSpotsManager.CheckAllSpots();
         }
     }
 }

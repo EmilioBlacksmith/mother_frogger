@@ -55,7 +55,7 @@ namespace Character_System
                     break;
                 case true when _timer > TimeBetweenSteps:
                     _timer = 0;
-                    GameManager.Instance.AddScore(10);
+                    GameManager.Instance.ScoreSystem.AddScore(10);
                     break;
             }
         }
