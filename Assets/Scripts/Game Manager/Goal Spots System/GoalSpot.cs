@@ -1,5 +1,5 @@
+using Character_System.HP_System;
 using Game_Manager;
-using HP_System;
 using UnityEngine;
 
 namespace Goal_Spots_System
@@ -33,7 +33,7 @@ namespace Goal_Spots_System
             }
             else
             {
-                HealthSystem.Instance.SubstractHealthPoint();
+                HealthSystem.Instance.SubtractHealthPoint();
             }
         }
 

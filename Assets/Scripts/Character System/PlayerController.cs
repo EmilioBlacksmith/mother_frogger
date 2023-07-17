@@ -1,5 +1,6 @@
+using Character_System.HP_System;
+using Character_System.Physics;
 using Game_Manager;
-using HP_System;
 using UnityEngine;
 
 namespace Character_System

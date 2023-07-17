@@ -1,11 +1,12 @@
-using HP_System;
+using Character_System.HP_System;
+using Goal_Spots_System;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Game_Manager
 {
+    [RequireComponent(typeof(TimerManager), typeof(GoalSpotsManager))]
     public class GameManager : MonoBehaviour
     {
         private int _score = 0;
@@ -15,12 +16,6 @@ namespace Game_Manager
 
         [Header("UI")] 
         [SerializeField] private TextMeshProUGUI scoreText;
-        [SerializeField] private TextMeshProUGUI hiScoreText;
-        [SerializeField] private Slider timerSlider;
-
-        [Header("Timer")] 
-        [SerializeField] private float gameTime;
-        [HideInInspector]public bool timerDone;
         private float _timer;
 
         [Header("Difficulty")] 
@@ -31,6 +26,7 @@ namespace Game_Manager
         [SerializeField] private Transform playerHip;
 
         public int DifficultyLevel() => difficultyLever;
+        public void RestartParenting() => playerHip.SetParent(playerParent, true);
 
         private void Awake()
         {
@@ -43,8 +39,6 @@ namespace Game_Manager
                 Instance = this;
             }
         }
-    
-        private void Start() => RestartTimer();
 
         public void AddScore(int addedScore)
         {
@@ -60,32 +54,10 @@ namespace Game_Manager
             }
         }
 
-        public void RestartTimer()
-        {
-            timerSlider.maxValue = gameTime;
-            timerSlider.value = gameTime;
-            _timer = gameTime;
-            playerHip.SetParent(playerParent, true);
-        }
-        
-        private void Update()
-        {
-            if (!(_timer > 0) || HealthSystem.Instance.IsGameOver) return;
-            
-            _timer -= Time.deltaTime;
-            timerSlider.value = _timer;
-
-            if (_timer <= 0)
-            {
-                HealthSystem.Instance.SubstractHealthPoint();
-                RestartTimer();
-            }
-        }
-
         public void GoalSpotCrossed()
         {
             HealthSystem.Instance.NextLevel();
-            playerHip.SetParent(playerParent, true);
+            RestartParenting();
         }
 
         public void NextLevel()
@@ -93,7 +65,7 @@ namespace Game_Manager
             HealthSystem.Instance.NextLevel();
             difficultyLever++;
             difficultyLever = Mathf.Clamp(difficultyLever, 1, 5);
-            playerHip.SetParent(playerParent, true);
+            RestartParenting();
         }
     }
 }

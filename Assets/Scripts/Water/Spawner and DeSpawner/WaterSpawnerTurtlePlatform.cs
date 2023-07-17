@@ -1,5 +1,5 @@
+using Character_System.HP_System;
 using Game_Manager;
-using HP_System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
