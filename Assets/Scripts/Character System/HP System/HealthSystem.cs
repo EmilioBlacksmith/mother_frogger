@@ -39,9 +39,10 @@ namespace Character_System.HP_System
         public void SubtractHealthPoint()
         {
             currentHealthPoints--;
-            if (currentHealthPoints <= 0)
+            if (currentHealthPoints <= 0 && !IsGameOver)
             {
                 IsGameOver = true;
+                GameManager.Instance.GameOver();
             }else
             { 
                 player.transform.position = startingPosition.position;

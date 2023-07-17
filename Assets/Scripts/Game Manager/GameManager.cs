@@ -58,7 +58,13 @@ namespace Game_Manager
             HealthSystem.Instance.NextLevel();
             _difficultyLever++;
             _difficultyLever = Mathf.Clamp(_difficultyLever, 1, 5);
+            ScoreSystem.AllGoalSpotsCrossed();
             RestartParenting();
+        }
+
+        public void GameOver()
+        {
+            ScoreSystem.ShowGameOverUI();
         }
     }
 }

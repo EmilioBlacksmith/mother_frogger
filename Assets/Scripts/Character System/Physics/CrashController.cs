@@ -6,6 +6,9 @@ namespace Character_System.Physics
 {
     public class CrashController : MonoBehaviour
     {
+        
+        public static CrashController Instance { get; private set; }
+        
         [SerializeField] private ConfigurableJoint[] bodyJoints;
         [SerializeField] private ConfigurableJoint hipJoint;
         [SerializeField] private float normalSpringForceBody = 4000;
@@ -17,7 +20,18 @@ namespace Character_System.Physics
     
         public bool hasCrash;
         public bool recovering;
-        public static CrashController Instance { get; private set; }
+        
+        private void Awake()
+        {
+            if (Instance != null && Instance != this)
+            {
+                Destroy(this);
+            }
+            else
+            {
+                Instance = this;
+            }
+        }
 
         private void Start()
         {
@@ -52,22 +66,7 @@ namespace Character_System.Physics
             hasCrash = true;
             recovering = true;
             
-            foreach (var joint in bodyJoints)
-            {
-                JointDrive jointDriveX = joint.angularXDrive;
-                JointDrive jointDriveYZ = joint.angularYZDrive;
-                jointDriveX.positionSpring = crashForceSpring;
-                jointDriveYZ.positionSpring = crashForceSpring;
-                joint.angularXDrive = jointDriveX;
-                joint.angularYZDrive = jointDriveYZ;
-            }
-            
-            JointDrive hipsJointDriveX = hipJoint.angularXDrive;
-            JointDrive hipsJointDriveYZ = hipJoint.angularYZDrive;
-            hipsJointDriveX.positionSpring = crashForceSpring;
-            hipsJointDriveYZ.positionSpring = crashForceSpring;
-            hipJoint.angularXDrive = hipsJointDriveX;
-            hipJoint.angularYZDrive = hipsJointDriveYZ;
+            CrashedJoints();
 
             crashPoints--;
         
@@ -108,6 +107,26 @@ namespace Character_System.Physics
             if(HealthSystem.Instance.IsGameOver) yield break;
 
             recovering = false;
+        }
+
+        public void CrashedJoints()
+        {
+            foreach (var joint in bodyJoints)
+            {
+                JointDrive jointDriveX = joint.angularXDrive;
+                JointDrive jointDriveYZ = joint.angularYZDrive;
+                jointDriveX.positionSpring = crashForceSpring;
+                jointDriveYZ.positionSpring = crashForceSpring;
+                joint.angularXDrive = jointDriveX;
+                joint.angularYZDrive = jointDriveYZ;
+            }
+            
+            JointDrive hipsJointDriveX = hipJoint.angularXDrive;
+            JointDrive hipsJointDriveYZ = hipJoint.angularYZDrive;
+            hipsJointDriveX.positionSpring = crashForceSpring;
+            hipsJointDriveYZ.positionSpring = crashForceSpring;
+            hipJoint.angularXDrive = hipsJointDriveX;
+            hipJoint.angularYZDrive = hipsJointDriveYZ;
         }
     }
 }

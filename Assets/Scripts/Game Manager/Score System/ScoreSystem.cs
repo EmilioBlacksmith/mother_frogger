@@ -1,14 +1,15 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Game_Manager.Score_System
 {
     public class ScoreSystem : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI scoreText;
+        [SerializeField] private GameObject gameOverUI;
         
         private int _score = 0;
-        private int _highScore = 0;
         
         public void AddScore(int addedScore)
         {
@@ -20,6 +21,13 @@ namespace Game_Manager.Score_System
         {
             AddScore(50);
             AddScore((int)(GameManager.Instance.TimerManager.TimeLeft()/2) * 10);
+        }
+
+        public void AllGoalSpotsCrossed() => AddScore(1000);
+
+        public void ShowGameOverUI()
+        {
+            gameOverUI.SetActive(true);
         }
     }
 }
