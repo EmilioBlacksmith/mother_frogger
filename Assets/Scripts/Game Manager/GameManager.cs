@@ -1,36 +1,51 @@
-using HP_System;
+using Character_System.HP_System;
+using Character_System.Physics;
+using Game_Manager.Goal_Spots_System;
+using Game_Manager.Score_System;
+using Game_Manager.Score_System.Leaderboard;
+using Game_Manager.Timer_System;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
-using UnityEngine.UI;
 
 namespace Game_Manager
 {
+    [RequireComponent(typeof(TimerManager), typeof(GoalSpotsManager), typeof(ScoreSystem))]
     public class GameManager : MonoBehaviour
     {
-        private int _score = 0;
-        private int _highScore = 0;
-
         public static GameManager Instance { get; private set; }
 
-        [Header("UI")] 
-        [SerializeField] private TextMeshProUGUI scoreText;
-        [SerializeField] private TextMeshProUGUI hiScoreText;
-        [SerializeField] private Slider timerSlider;
-
-        [Header("Timer")] 
-        [SerializeField] private float gameTime;
-        [HideInInspector]public bool timerDone;
-        private float _timer;
-
-        [Header("Difficulty")] 
-        [SerializeField] private int difficultyLever = 1;
+        private int _difficultyLever = 1;
+        
+        [SerializeField] private int currentLevelIndex;
 
         [Header("Player Parenting")] 
         [SerializeField] private Transform playerParent;
         [SerializeField] private Transform playerHip;
 
-        public int DifficultyLevel() => difficultyLever;
+        [Header("Player Score Submit")] 
+        [SerializeField] private TMP_InputField playerName;
+        [SerializeField] private TextMeshProUGUI playerScoreUI;
+        
+        public int DifficultyLevel() => _difficultyLever;
+        
+        // Manager Subsystems
+        public ScoreSystem ScoreSystem { get; private set; }
+        public TimerManager TimerManager { get; private set; }
+        public GoalSpotsManager GoalSpotsManager { get; private set; }
+        public LeaderBoard Leaderboard { get; private set; }
+
+        private void Start()
+        {
+            TimerManager = GetComponent<TimerManager>();
+            ScoreSystem = GetComponent<ScoreSystem>();
+            GoalSpotsManager = GetComponent<GoalSpotsManager>();
+            Leaderboard = GetComponent<LeaderBoard>();
+        }
+
+        public void RestartParenting() => playerHip.SetParent(playerParent, true);
 
         private void Awake()
         {
@@ -43,57 +58,41 @@ namespace Game_Manager
                 Instance = this;
             }
         }
-    
-        private void Start() => RestartTimer();
-
-        public void AddScore(int addedScore)
-        {
-            _score += addedScore;
-            scoreText.text = "" + _score;
-        }
-
-        private void EndLevel()
-        {
-            if (_highScore <= _score)
-            {
-                _highScore = _score;
-            }
-        }
-
-        public void RestartTimer()
-        {
-            timerSlider.maxValue = gameTime;
-            timerSlider.value = gameTime;
-            _timer = gameTime;
-            playerHip.SetParent(playerParent, true);
-        }
-        
-        private void Update()
-        {
-            if (!(_timer > 0) || HealthSystem.Instance.IsGameOver) return;
-            
-            _timer -= Time.deltaTime;
-            timerSlider.value = _timer;
-
-            if (_timer <= 0)
-            {
-                HealthSystem.Instance.SubstractHealthPoint();
-                RestartTimer();
-            }
-        }
 
         public void GoalSpotCrossed()
         {
+            ScoreSystem.FrogCrossed();
             HealthSystem.Instance.NextLevel();
-            playerHip.SetParent(playerParent, true);
+            RestartParenting();
         }
 
-        public void NextLevel()
+        public void NextDifficulty()
         {
             HealthSystem.Instance.NextLevel();
-            difficultyLever++;
-            difficultyLever = Mathf.Clamp(difficultyLever, 1, 5);
-            playerHip.SetParent(playerParent, true);
+            _difficultyLever++;
+            _difficultyLever = Mathf.Clamp(_difficultyLever, 1, 5);
+            ScoreSystem.AllGoalSpotsCrossed();
+            RestartParenting();
+        }
+
+        public void GameOver()
+        {
+            CrashController.Instance.CrashedJoints();
+            CrashController.Instance.hasCrash = true;
+            playerScoreUI.text = ScoreSystem.Score().ToString();
+            ScoreSystem.ShowGameOverUI();
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
+        }
+
+        public void SubmitPlayerScore()
+        {
+            Leaderboard.SetLeaderboardEntry(playerName.text, ScoreSystem.Score());
+        }
+
+        public void Restart()
+        {
+            SceneManager.LoadSceneAsync(currentLevelIndex,LoadSceneMode.Single);
         }
     }
 }

@@ -1,5 +1,6 @@
+using Character_System.HP_System;
+using Character_System.Physics;
 using Game_Manager;
-using HP_System;
 using UnityEngine;
 
 namespace Character_System
@@ -54,7 +55,7 @@ namespace Character_System
                     break;
                 case true when _timer > TimeBetweenSteps:
                     _timer = 0;
-                    GameManager.Instance.AddScore(10);
+                    GameManager.Instance.ScoreSystem.AddScore(10);
                     break;
             }
         }

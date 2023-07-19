@@ -1,8 +1,7 @@
-using Game_Manager;
-using HP_System;
+using Character_System.HP_System;
 using UnityEngine;
 
-namespace Goal_Spots_System
+namespace Game_Manager.Goal_Spots_System
 {
     public class GoalSpot : MonoBehaviour
     {
@@ -33,7 +32,7 @@ namespace Goal_Spots_System
             }
             else
             {
-                HealthSystem.Instance.SubstractHealthPoint();
+                HealthSystem.Instance.SubtractHealthPoint();
             }
         }
 
@@ -43,7 +42,7 @@ namespace Goal_Spots_System
             spotRenderer.material = notAvailableMaterial;
             insideFrog.SetActive(true);
             GameManager.Instance.GoalSpotCrossed();
-            GoalSpotsManager.Instance.CheckAllSpots();
+            GameManager.Instance.GoalSpotsManager.CheckAllSpots();
         }
     }
 }

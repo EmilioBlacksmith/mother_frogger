@@ -1,31 +1,31 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class CopyMotion : MonoBehaviour
+namespace Character_System.Physics
 {
-    [SerializeField] private Transform targetLimb;
-    private ConfigurableJoint m_ConfigurableJoint;
+    public class CopyMotion : MonoBehaviour
+    {
+        [SerializeField] private Transform targetLimb;
+        private ConfigurableJoint _mConfigurableJoint;
     
-    private Quaternion targetInitialRotation;
+        private Quaternion _targetInitialRotation;
 
-    private void Start()
-    {
-        this.m_ConfigurableJoint = this.GetComponent<ConfigurableJoint>();
-        this.targetInitialRotation = this.targetLimb.transform.localRotation;
-    }
-
-    private void FixedUpdate()
-    {
-        if (!CrashController.Instance.hasCrash)
+        private void Start()
         {
-            this.m_ConfigurableJoint.targetRotation = CopyRotation();
+            this._mConfigurableJoint = this.GetComponent<ConfigurableJoint>();
+            this._targetInitialRotation = this.targetLimb.transform.localRotation;
         }
-    }
 
-    private Quaternion CopyRotation()
-    {
-        return Quaternion.Inverse(this.targetLimb.localRotation) * this.targetInitialRotation;
+        private void FixedUpdate()
+        {
+            if (!CrashController.Instance.hasCrash)
+            {
+                this._mConfigurableJoint.targetRotation = CopyRotation();
+            }
+        }
+
+        private Quaternion CopyRotation()
+        {
+            return Quaternion.Inverse(this.targetLimb.localRotation) * this._targetInitialRotation;
+        }
     }
 }

@@ -1,21 +1,19 @@
-using System;
+using Character_System.Physics;
 using Game_Manager;
+using Game_Manager.Timer_System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace HP_System
+namespace Character_System.HP_System
 {
     public class HealthSystem : MonoBehaviour
     {
         [SerializeField] private int currentHealthPoints;
         [SerializeField] private int startingHealthPoints = 3;
         [SerializeField] private Transform startingPosition;
-        [SerializeField] private GameObject player; 
-
-        private bool _gameOver = false;
+        [SerializeField] private GameObject player;
 
         public static HealthSystem Instance { get; private set; }
-        public bool IsGameOver => _gameOver;
+        public bool IsGameOver { get; private set; } = false;
 
         private void Awake()
         {
@@ -33,21 +31,23 @@ namespace HP_System
         {
             currentHealthPoints = startingHealthPoints;
             player.transform.position = startingPosition.position;
+            IsGameOver = false;
         } 
         
         public int CurrentHealthPoints => currentHealthPoints;
 
-        public void SubstractHealthPoint()
+        public void SubtractHealthPoint()
         {
             currentHealthPoints--;
-            if (currentHealthPoints <= 0)
+            if (currentHealthPoints <= 0 && !IsGameOver)
             {
-                _gameOver = true;
+                IsGameOver = true;
+                GameManager.Instance.GameOver();
             }else
             { 
                 player.transform.position = startingPosition.position;
                 CrashController.Instance.RestartCrashPoints();
-                GameManager.Instance.RestartTimer();
+                GameManager.Instance.TimerManager.RestartTimer();
                 
             }
         }
@@ -56,7 +56,7 @@ namespace HP_System
         {
             player.transform.position = startingPosition.position;
             CrashController.Instance.RestartCrashPoints();
-            GameManager.Instance.RestartTimer();
+            GameManager.Instance.TimerManager.RestartTimer();
         }
     }
 }

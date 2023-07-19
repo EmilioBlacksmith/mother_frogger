@@ -1,5 +1,5 @@
+using Character_System.HP_System;
 using Game_Manager;
-using HP_System;
 using UnityEngine;
 
 namespace Water.Platforms
@@ -26,7 +26,7 @@ namespace Water.Platforms
         {
             if (other.gameObject.CompareTag("Player"))
             {
-                HealthSystem.Instance.SubstractHealthPoint();
+                HealthSystem.Instance.SubtractHealthPoint();
             }
         }
     }
