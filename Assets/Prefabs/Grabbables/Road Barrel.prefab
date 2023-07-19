@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7601619092352551006}
   - component: {fileID: 5664005524800191636}
   - component: {fileID: 7601619092352550992}
-  - component: {fileID: 7601619092352550993}
+  - component: {fileID: 1568127847732775110}
   m_Layer: 6
   m_Name: Road Barrel
   m_TagString: Grabbable
@@ -101,8 +101,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &7601619092352550993
-MeshCollider:
+--- !u!65 &1568127847732775110
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -111,7 +111,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -5045048721776089473, guid: 96430e789a51bc641b74175906991124, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 3.8, y: 6.0984507, z: 3.97}
+  m_Center: {x: 0, y: 3.0490866, z: 0}

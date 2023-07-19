@@ -17,7 +17,7 @@ namespace Game_Manager.Score_System.Leaderboard
         private readonly string publicLeaderboardKey = 
             "77856b344686ba177464e866b70890f6ab590aa3f37a3d7e40684030ad3936f1";
 
-        public void GetLeaderboard()
+        private void GetLeaderboard()
         {
             
             LeaderboardCreator.GetLeaderboard(publicLeaderboardKey, ((msg) =>

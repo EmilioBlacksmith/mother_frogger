@@ -16,6 +16,7 @@ namespace Water.Spawner_and_DeSpawner
         [SerializeField] private GameObject woodLogPlatform;
         [SerializeField] private GameObject crocodileTrap;
         [SerializeField] private float startingTimeBetweenSpawn = 8;
+        //[SerializeField] private float lifeSpan = 10;
         
         private float _timeBetweenSpawn;
         private int _randomNum;
@@ -60,20 +61,15 @@ namespace Water.Spawner_and_DeSpawner
             if (_timer >= _timeBetweenSpawn)
             {
                 _randomNum = (Random.Range(0, 5000))%(15 / GameManager.Instance.DifficultyLevel());
-                //Debug.Log(_randomNum);
-            
-                switch (_randomNum)
+                var positionSpawn = transform.position;
+                var newObj = _randomNum switch
                 {
-                    case 3:
-                        Instantiate(crocodileTrap, transform.position, _thisDirectionRotation);
-                        break;
-                    case 2:
-                        Instantiate(crocodileTrap, transform.position, _thisDirectionRotation);
-                        break;
-                    default:
-                        Instantiate(woodLogPlatform, transform.position, _thisDirectionRotation);
-                        break;
-                }
+                    3 => Instantiate(crocodileTrap, positionSpawn, _thisDirectionRotation),
+                    2 => Instantiate(crocodileTrap, positionSpawn, _thisDirectionRotation),
+                    _ => Instantiate(woodLogPlatform, positionSpawn, _thisDirectionRotation)
+                };
+                //Destroy(newObj, lifeSpan * (10 - GameManager.Instance.DifficultyLevel()));
+                
                 _timer = 0;
             }
 

@@ -60,16 +60,14 @@ namespace Water.Spawner_and_DeSpawner
             if (_timer >= _timeBetweenSpawn)
             {
                 _randomNum = (Random.Range(0, 5000))%2;
-                switch (_randomNum)
+                var positionSpawn = transform.position;
+                var newObj = _randomNum switch
                 {
-                    case 0:
-                        Instantiate(triplePlatform, transform.position, _thisDirectionRotation);
-                        break;
-                    case 1:
-                        Instantiate(doublePlatform, transform.position, _thisDirectionRotation);
-                        break;
-                }
-                //Destroy(newObj, lifeSpan);
+                    0 => Instantiate(triplePlatform, positionSpawn, _thisDirectionRotation),
+                    1 => Instantiate(doublePlatform, positionSpawn, _thisDirectionRotation),
+                    _ => null
+                };
+                //Destroy(newObj, lifeSpan * (10 - GameManager.Instance.DifficultyLevel()));;
                 _timer = 0;
             }
 

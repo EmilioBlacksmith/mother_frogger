@@ -19,7 +19,7 @@ namespace Game_Manager
 
         private int _difficultyLever = 1;
         
-        [SerializeField] private int currentLevelIndex;
+        [SerializeField] private int currentLevelSceneIndex;
 
         [Header("Player Parenting")] 
         [SerializeField] private Transform playerParent;
@@ -35,7 +35,7 @@ namespace Game_Manager
         public ScoreSystem ScoreSystem { get; private set; }
         public TimerManager TimerManager { get; private set; }
         public GoalSpotsManager GoalSpotsManager { get; private set; }
-        public LeaderBoard Leaderboard { get; private set; }
+        private LeaderBoard Leaderboard { get; set; }
 
         private void Start()
         {
@@ -92,7 +92,12 @@ namespace Game_Manager
 
         public void Restart()
         {
-            SceneManager.LoadSceneAsync(currentLevelIndex,LoadSceneMode.Single);
+            SceneManager.LoadSceneAsync(currentLevelSceneIndex,LoadSceneMode.Single);
+        }
+
+        public void MainMenu()
+        {
+            SceneManager.LoadSceneAsync(0, LoadSceneMode.Single);
         }
     }
 }

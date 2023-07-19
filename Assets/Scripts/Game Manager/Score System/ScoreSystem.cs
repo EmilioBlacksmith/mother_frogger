@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -12,11 +13,17 @@ namespace Game_Manager.Score_System
         private int _score = 0;
 
         public int Score() => _score;
-        
+
+        private void Start()
+        {
+            _score = 0;
+            scoreText.text = _score.ToString();
+        }
+
         public void AddScore(int addedScore)
         {
             _score += addedScore;
-            scoreText.text = "" + _score;
+            scoreText.text = _score.ToString();
         }
 
         public void FrogCrossed()
@@ -27,9 +34,6 @@ namespace Game_Manager.Score_System
 
         public void AllGoalSpotsCrossed() => AddScore(1000);
 
-        public void ShowGameOverUI()
-        {
-            gameOverUI.SetActive(true);
-        }
+        public void ShowGameOverUI() => gameOverUI.SetActive(true);
     }
 }
