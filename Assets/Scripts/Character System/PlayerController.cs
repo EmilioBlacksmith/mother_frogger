@@ -39,10 +39,11 @@ namespace Character_System
 
                 this.hipJoint.targetRotation = Quaternion.Euler(0f, targetAngle - 90, 0f);
 
-                this.hip.velocity = moveDirection.normalized * this.speed;
+                this.hip.AddForce(moveDirection.normalized * this.speed, ForceMode.VelocityChange); 
 
                 this._walk = true;
             }  else {
+                this.hip.AddForce(Vector3.zero, ForceMode.VelocityChange); 
                 this._walk = false;
             }
 

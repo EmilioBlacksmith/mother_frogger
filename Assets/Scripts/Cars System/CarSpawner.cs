@@ -34,7 +34,7 @@ namespace Cars_System
             };
             
             var newObj = Instantiate(objectToSpawn, transform.position, _thisDirectionRotation);
-            Destroy(newObj, lifeSpan);
+            Destroy(newObj, lifeSpan * (10 - GameManager.Instance.DifficultyLevel()));
             _timer = 0;
             _timeBetweenSpawn = startingTimeBetweenSpawn;
         }

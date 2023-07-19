@@ -17,7 +17,7 @@ namespace Game_Manager
     {
         public static GameManager Instance { get; private set; }
 
-        private int _difficultyLever = 1;
+        [SerializeField]private int _difficultyLever = 1;
         
         [SerializeField] private int currentLevelIndex;
 
@@ -35,7 +35,7 @@ namespace Game_Manager
         public ScoreSystem ScoreSystem { get; private set; }
         public TimerManager TimerManager { get; private set; }
         public GoalSpotsManager GoalSpotsManager { get; private set; }
-        public LeaderBoard Leaderboard { get; private set; }
+        private LeaderBoard Leaderboard { get; set; }
 
         private void Start()
         {
