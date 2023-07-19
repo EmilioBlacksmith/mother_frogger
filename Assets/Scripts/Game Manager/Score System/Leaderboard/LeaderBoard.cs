@@ -17,11 +17,6 @@ namespace Game_Manager.Score_System.Leaderboard
         private readonly string publicLeaderboardKey = 
             "77856b344686ba177464e866b70890f6ab590aa3f37a3d7e40684030ad3936f1";
 
-        private void Start()
-        {
-            GetLeaderboard();
-        }
-
         public void GetLeaderboard()
         {
             
@@ -33,6 +28,7 @@ namespace Game_Manager.Score_System.Leaderboard
                 {
                     names[i].text = msg[i].Username;
                     scores[i].text = msg[i].Score.ToString();
+                    leaderboardList[i].SetActive(true);
                 }
 
                 if (msg.Length < names.Count)

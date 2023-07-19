@@ -10,6 +10,8 @@ namespace Game_Manager.Score_System
         [SerializeField] private GameObject gameOverUI;
         
         private int _score = 0;
+
+        public int Score() => _score;
         
         public void AddScore(int addedScore)
         {

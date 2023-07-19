@@ -46,6 +46,11 @@ namespace Character_System.Physics
             {
                 Restart();
             }
+
+            if (hipJoint.transform.position.y <= -4f && !HealthSystem.Instance.IsGameOver)
+            {
+                Restart();
+            }
         
         }
 
