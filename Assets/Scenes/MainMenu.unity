@@ -213,7 +213,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 68643829}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 568601403}
+        m_TargetAssemblyTypeName: Main_Menu.MainMenuFunctionality, Assembly-CSharp
+        m_MethodName: StartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &68643829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,7 +310,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 15.242, y: 29.616, z: 2.385}
 --- !u!1 &206048285
 GameObject:
@@ -599,7 +611,7 @@ Transform:
   m_Children:
   - {fileID: 1445778615}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 15.62, y: 25.059, z: 0}
 --- !u!114 &330585547
 MonoBehaviour:
@@ -1012,6 +1024,51 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 15.242, y: 29.616, z: 2.385}
+--- !u!1 &568601402
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 568601404}
+  - component: {fileID: 568601403}
+  m_Layer: 0
+  m_Name: Main Menu System
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &568601403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 568601402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05913309a157c2b4faa59c6371cca31c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameLevelSceneIndex: 1
+--- !u!4 &568601404
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 568601402}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 43.69087, y: 5.7738724, z: 0.90167236}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &606496478
 GameObject:
   m_ObjectHideFlags: 0
@@ -1046,7 +1103,7 @@ Transform:
   - {fileID: 2105760286}
   - {fileID: 7592614121522755633}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &681400249
 GameObject:
@@ -1142,7 +1199,7 @@ RectTransform:
   m_Children:
   - {fileID: 206048286}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1317,54 +1374,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6fe496b50ec29342b0f7b5393c1dd3c, type: 3}
---- !u!1 &789897322
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 789897324}
-  - component: {fileID: 789897323}
-  m_Layer: 0
-  m_Name: FrogSpawner (3)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &789897323
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 789897322}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66c7000d5342f3e4e8143256fd80e00a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  frogRagdoll: {fileID: 4953115084602902130, guid: 536fe8cae0b50d248a59ba9490bced42,
-    type: 3}
-  timeBetweenSpawn: 2.5
-  lifeSpan: 10
---- !u!4 &789897324
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 789897322}
-  m_LocalRotation: {x: 0.23570728, y: -0.9242983, z: -0.26489544, w: -0.14122728}
-  m_LocalPosition: {x: 29.1, y: 43.4, z: 19.5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: -33.798, y: -189.433, z: -25.741}
 --- !u!1 &997111515
 GameObject:
   m_ObjectHideFlags: 0
@@ -1411,7 +1420,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: -33.798, y: -189.433, z: -25.741}
 --- !u!1 &1051758269
 GameObject:
@@ -1444,7 +1453,7 @@ Transform:
   - {fileID: 410087041}
   - {fileID: 1789837238}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1274851340
 PrefabInstance:
@@ -1582,7 +1591,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: -24.455, y: -147.04, z: -56.198}
 --- !u!1 &1418265291
 GameObject:
@@ -1614,7 +1623,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: -33.798, y: -189.433, z: -25.741}
 --- !u!114 &1418265293
 MonoBehaviour:
@@ -1810,7 +1819,7 @@ GameObject:
   - component: {fileID: 1853452810}
   - component: {fileID: 1853452809}
   m_Layer: 5
-  m_Name: StartGame (1)
+  m_Name: Exit Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1880,7 +1889,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1853452810}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 568601403}
+        m_TargetAssemblyTypeName: Main_Menu.MainMenuFunctionality, Assembly-CSharp
+        m_MethodName: ExitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1853452810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2055,54 +2076,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1885287638}
   m_CullTransparentMesh: 1
---- !u!1 &1991139867
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1991139869}
-  - component: {fileID: 1991139868}
-  m_Layer: 0
-  m_Name: FrogSpawner (6)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1991139868
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1991139867}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66c7000d5342f3e4e8143256fd80e00a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  frogRagdoll: {fileID: 4953115084602902130, guid: 536fe8cae0b50d248a59ba9490bced42,
-    type: 3}
-  timeBetweenSpawn: 3
-  lifeSpan: 10
---- !u!4 &1991139869
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1991139867}
-  m_LocalRotation: {x: 0.38840207, y: -0.85500485, z: -0.3097379, w: 0.14890595}
-  m_LocalPosition: {x: 25.199999, y: 57.6, z: 19.5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: -24.455, y: -147.04, z: -56.198}
 --- !u!4 &2105760286 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4892098532282147545, guid: a7780a26db43a8b45848ddd4b03a3468,
@@ -4624,7 +4597,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7067751987630711435}
   m_LocalRotation: {x: -0, y: 0.662795, z: -0, w: -0.748801}
-  m_LocalPosition: {x: 75.8, y: -16.7, z: -14.5}
+  m_LocalPosition: {x: 66.1, y: -16.7, z: -8}
   m_LocalScale: {x: 1.8751001, y: 1.8751, z: 1.8751001}
   m_ConstrainProportionsScale: 0
   m_Children:

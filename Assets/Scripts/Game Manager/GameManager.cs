@@ -17,9 +17,9 @@ namespace Game_Manager
     {
         public static GameManager Instance { get; private set; }
 
-        [SerializeField]private int _difficultyLever = 1;
+        private int _difficultyLever = 1;
         
-        [SerializeField] private int currentLevelIndex;
+        [SerializeField] private int currentLevelSceneIndex;
 
         [Header("Player Parenting")] 
         [SerializeField] private Transform playerParent;
@@ -92,7 +92,12 @@ namespace Game_Manager
 
         public void Restart()
         {
-            SceneManager.LoadSceneAsync(currentLevelIndex,LoadSceneMode.Single);
+            SceneManager.LoadSceneAsync(currentLevelSceneIndex,LoadSceneMode.Single);
+        }
+
+        public void MainMenu()
+        {
+            SceneManager.LoadSceneAsync(0, LoadSceneMode.Single);
         }
     }
 }

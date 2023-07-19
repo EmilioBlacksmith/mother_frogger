@@ -13865,8 +13865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eebd2c9642cd1b1449d7b31768f897ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _difficultyLever: 1
-  currentLevelIndex: 0
+  currentLevelIndex: 1
   playerParent: {fileID: 1574676229}
   playerHip: {fileID: 148335204}
   playerName: {fileID: 1039283102}
@@ -14747,7 +14746,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1647747433}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1518830624}
+        m_TargetAssemblyTypeName: Game_Manager.GameManager, Assembly-CSharp
+        m_MethodName: MainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1647747433
 MonoBehaviour:
   m_ObjectHideFlags: 0
