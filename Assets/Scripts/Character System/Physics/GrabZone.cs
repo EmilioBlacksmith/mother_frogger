@@ -1,78 +1,79 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class GrabZone : MonoBehaviour
+namespace Character_System.Physics
 {
-    public Animator targetAnimator;
-    public GameObject grabbedObj;
-    public Rigidbody rigidBody;
-    public bool alreadyGrabbing = false;
-
-    private void Start()
+    public class GrabZone : MonoBehaviour
     {
-        rigidBody = GetComponent<Rigidbody>();
-    }
+        public Animator targetAnimator;
+        public GameObject grabbedObj;
+        public Rigidbody rigidBody;
+        public bool alreadyGrabbing = false;
+        private static readonly int Grabbing = Animator.StringToHash("Grabbing");
 
-    private void Update()
-    {
-        if (CrashController.Instance.hasCrash) return;
+        private void Start()
+        {
+            rigidBody = GetComponent<Rigidbody>();
+        }
+
+        private void Update()
+        {
+            if (CrashController.Instance.hasCrash) return;
         
-        if (Input.GetMouseButton(0))
-        {
-            targetAnimator.SetBool("Grabbing", true);
-
-            if (grabbedObj != null && !alreadyGrabbing)
+            if (Input.GetMouseButton(0))
             {
-                grabbedObj.transform.position = transform.position;
+                targetAnimator.SetBool(Grabbing, true);
+
+                if (grabbedObj != null && !alreadyGrabbing)
+                {
+                    grabbedObj.transform.position = transform.position;
                 
-                FixedJoint fj = grabbedObj.AddComponent<FixedJoint>();
-                fj.connectedBody = rigidBody;
-                fj.breakForce = 100000;
+                    FixedJoint fj = grabbedObj.AddComponent<FixedJoint>();
+                    fj.connectedBody = rigidBody;
+                    fj.breakForce = 100000;
 
-                Collider collider = grabbedObj.GetComponent<Collider>();
-                collider.isTrigger = true;
+                    Collider component = grabbedObj.GetComponent<Collider>();
+                    component.isTrigger = true;
 
-                alreadyGrabbing = true;
+                    alreadyGrabbing = true;
+                }
+
             }
 
-        }
-
-        if (Input.GetMouseButtonUp(0))
-        {
-            targetAnimator.SetBool("Grabbing", false);
-
-            if (grabbedObj != null && alreadyGrabbing)
+            if (Input.GetMouseButtonUp(0))
             {
-                Destroy(grabbedObj.GetComponent<FixedJoint>());
+                targetAnimator.SetBool(Grabbing, false);
+
+                if (grabbedObj != null && alreadyGrabbing)
+                {
+                    Destroy(grabbedObj.GetComponent<FixedJoint>());
                 
-                var collider = grabbedObj.GetComponent<Collider>();
-                var rotationYObject = grabbedObj.transform.eulerAngles.y;
+                    var component = grabbedObj.GetComponent<Collider>();
+                    var rotationYObject = grabbedObj.transform.eulerAngles.y;
                 
-                grabbedObj.transform.rotation = Quaternion.Euler(0,rotationYObject, 0);
-                collider.isTrigger = false;
+                    grabbedObj.transform.rotation = Quaternion.Euler(0,rotationYObject, 0);
+                    component.isTrigger = false;
                 
-                alreadyGrabbing = false;
+                    alreadyGrabbing = false;
+                }
+
+                grabbedObj = null;
             }
-
-            grabbedObj = null;
         }
-    }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Grabbable"))
+        private void OnTriggerEnter(Collider other)
         {
-            grabbedObj = other.gameObject;
+            if (other.CompareTag("Grabbable"))
+            {
+                grabbedObj = other.gameObject;
+            }
         }
-    }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Grabbable"))
+        private void OnTriggerExit(Collider other)
         {
-            grabbedObj = null;
+            if (other.CompareTag("Grabbable"))
+            {
+                grabbedObj = null;
+            }
         }
     }
 }
