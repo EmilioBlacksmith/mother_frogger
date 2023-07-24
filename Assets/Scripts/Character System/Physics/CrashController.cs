@@ -14,7 +14,8 @@ namespace Character_System.Physics
         [SerializeField] private float normalSpringForceBody = 4000;
         [SerializeField] private float normalSpringForceHips = 100000;
         [SerializeField] private float crashForceSpring = 50f;
-        [SerializeField] private int crashPoints= 3;
+        [SerializeField] private int crashPoints = 3;
+        [SerializeField] private int startingCrashPoints = 4;
         [SerializeField] private float timeAfterHit = 3;
     
     
@@ -38,6 +39,7 @@ namespace Character_System.Physics
             Instance = this;
             hasCrash = false;
             recovering = false;
+            HUDSystem.Instance?.AllocateCrashPoints(crashPoints);
         }
 
         private void Update()
@@ -61,7 +63,8 @@ namespace Character_System.Physics
 
         public void RestartCrashPoints()
         {
-            crashPoints = 3;
+            crashPoints = startingCrashPoints;
+            HUDSystem.Instance?.AllocateCrashPoints(crashPoints);
         }
 
         private void OnTriggerEnter(Collider other)
@@ -74,6 +77,7 @@ namespace Character_System.Physics
             CrashedJoints();
 
             crashPoints--;
+            HUDSystem.Instance.UpdateCrashPoints(crashPoints);
         
             StartCoroutine(WaitTillFixed());
         }
