@@ -14,17 +14,13 @@ namespace Character_System.HP_System
 
         public static HealthSystem Instance { get; private set; }
         public bool IsGameOver { get; private set; } = false;
-
+        
         private void Awake()
         {
             if (Instance != null && Instance != this)
-            {
                 Destroy(this);
-            }
             else
-            {
                 Instance = this;
-            }
         }
 
         public void Start()
@@ -32,6 +28,7 @@ namespace Character_System.HP_System
             currentHealthPoints = startingHealthPoints;
             player.transform.position = startingPosition.position;
             IsGameOver = false;
+            HUDSystem.Instance?.AllocateHealthPoints(currentHealthPoints);
         } 
         
         public int CurrentHealthPoints => currentHealthPoints;
@@ -48,7 +45,7 @@ namespace Character_System.HP_System
                 player.transform.position = startingPosition.position;
                 CrashController.Instance.RestartCrashPoints();
                 GameManager.Instance.TimerManager.RestartTimer();
-                
+                HUDSystem.Instance.UpdateHealthPoints(currentHealthPoints);
             }
         }
 
