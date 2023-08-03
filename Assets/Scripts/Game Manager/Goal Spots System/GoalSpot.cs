@@ -1,4 +1,6 @@
+using System.Collections;
 using Character_System.HP_System;
+using Particles;
 using UnityEngine;
 
 namespace Game_Manager.Goal_Spots_System
@@ -9,6 +11,7 @@ namespace Game_Manager.Goal_Spots_System
         [SerializeField] private Material notAvailableMaterial;
         [SerializeField] private Renderer spotRenderer;
         [SerializeField] private GameObject insideFrog;
+        
 
         private bool _available = true;
         
@@ -28,6 +31,7 @@ namespace Game_Manager.Goal_Spots_System
         
             if (_available)
             {
+                ParticleSpawningSystem.Instance.SpawnCrossSpotParticle(other.transform);
                 GoalSpotCrossed();
             }
             else

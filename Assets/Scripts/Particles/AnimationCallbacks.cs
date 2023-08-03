@@ -8,13 +8,13 @@ namespace Particles
         public void MakeLeftStep()
         {
             if(CrashController.Instance.hasCrash) return;
-            ParticlesSystem.Instance.TakeStep(ParticlesSystem.FootUsed.Left);
+            ParticleSpawningSystem.Instance.TakeStep(ParticleSpawningSystem.FootUsed.Left);
         }
     
         public void MakeRightStep()
         {
             if(CrashController.Instance.hasCrash) return;
-            ParticlesSystem.Instance.TakeStep(ParticlesSystem.FootUsed.Right);
+            ParticleSpawningSystem.Instance.TakeStep(ParticleSpawningSystem.FootUsed.Right);
         }
     }
 }

@@ -1,6 +1,7 @@
 using Character_System.Physics;
 using Game_Manager;
 using Game_Manager.Timer_System;
+using Particles;
 using UnityEngine;
 
 namespace Character_System.HP_System
@@ -46,6 +47,7 @@ namespace Character_System.HP_System
                 CrashController.Instance.RestartCrashPoints();
                 GameManager.Instance.TimerManager.RestartTimer();
                 HUDSystem.Instance.UpdateHealthPoints(currentHealthPoints);
+                ParticleSpawningSystem.Instance.SpawnSpawningParticle(player.transform);
             }
         }
 
@@ -54,6 +56,7 @@ namespace Character_System.HP_System
             player.transform.position = startingPosition.position;
             CrashController.Instance.RestartCrashPoints();
             GameManager.Instance.TimerManager.RestartTimer();
+            ParticleSpawningSystem.Instance.SpawnSpawningParticle(player.transform);
         }
     }
 }

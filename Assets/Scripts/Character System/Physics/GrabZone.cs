@@ -1,3 +1,4 @@
+using Particles;
 using UnityEngine;
 
 namespace Character_System.Physics
@@ -51,6 +52,7 @@ namespace Character_System.Physics
                     var rotationYObject = grabbedObj.transform.eulerAngles.y;
                 
                     grabbedObj.transform.rotation = Quaternion.Euler(0,rotationYObject, 0);
+                    ParticleSpawningSystem.Instance.SpawnPlacingObjectParticle(grabbedObj.transform);
                     component.isTrigger = false;
                 
                     alreadyGrabbing = false;

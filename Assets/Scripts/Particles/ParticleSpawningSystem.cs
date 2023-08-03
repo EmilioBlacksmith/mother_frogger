@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Particles
 {
-    public class ParticlesSystem : MonoBehaviour
+    public class ParticleSpawningSystem : MonoBehaviour
     {
         public enum FootUsed
         {
@@ -22,7 +22,7 @@ namespace Particles
         [SerializeField] private GameObject crossSpotParticles;
         [SerializeField] private GameObject footstepParticles;
         
-        public static ParticlesSystem Instance { get; private set; }
+        public static ParticleSpawningSystem Instance { get; private set; }
     
         private void Awake()
         {
