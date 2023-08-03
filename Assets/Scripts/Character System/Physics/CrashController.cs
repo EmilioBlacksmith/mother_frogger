@@ -1,5 +1,7 @@
 using System.Collections;
+using Cars_System;
 using Character_System.HP_System;
+using Particles;
 using UnityEngine;
 
 namespace Character_System.Physics
@@ -73,6 +75,14 @@ namespace Character_System.Physics
         
             hasCrash = true;
             recovering = true;
+            
+            ParticleSpawningSystem.Instance.SpawnCrashParticle(other.transform);
+            CarMovement car = other.GetComponent<CarMovement>();
+
+            if (car != null)
+            {
+                car.StartCoroutine(nameof(CarMovement.CrashPlayer));
+            }
             
             CrashedJoints();
 
