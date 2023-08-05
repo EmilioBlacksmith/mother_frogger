@@ -8,6 +8,7 @@ namespace Audio
     {
         [SerializeField] private AudioSource sfxAudioSource;
         [SerializeField] private AudioMixer musicMixer;
+        [SerializeField] private AudioMixerGroup gameMixerGroup;
 
         [SerializeField] private float sfxAudioSourceVolume;
 
@@ -50,7 +51,7 @@ namespace Audio
             emptyObj.name = "(temporal)Collision AudioSrc";
             AudioSource audioSource = emptyObj.AddComponent<AudioSource>();
             emptyObj.transform.position = positionOfExplosion.position;
-            audioSource.rolloffMode = AudioRolloffMode.Logarithmic;
+            audioSource.outputAudioMixerGroup = gameMixerGroup;
             audioSource.playOnAwake = false;
             audioSource.loop = false;
             audioSource.volume = 1f;

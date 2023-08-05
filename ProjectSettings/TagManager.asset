@@ -9,6 +9,7 @@ TagManager:
   - Platform
   - Recorder
   - WaterObj
+  - Mute Button
   layers:
   - Default
   - TransparentFX

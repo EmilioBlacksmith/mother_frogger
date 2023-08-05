@@ -10494,6 +10494,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sfxAudioSource: {fileID: 1534087135}
   musicMixer: {fileID: 24100000, guid: 6f5dc4bd7c0d31e42a900608065078b1, type: 2}
+  gameMixerGroup: {fileID: 24300002, guid: 6f5dc4bd7c0d31e42a900608065078b1, type: 2}
   sfxAudioSourceVolume: 0.4
   rightFootstepClip: {fileID: 8300000, guid: 2eb39021b8cecc64ca12998a5b7c64fc, type: 3}
   leftFootstepClip: {fileID: 8300000, guid: 2eb39021b8cecc64ca12998a5b7c64fc, type: 3}
@@ -14385,7 +14386,8 @@ AudioSource:
   m_GameObject: {fileID: 1534087133}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 6f5dc4bd7c0d31e42a900608065078b1,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.75
@@ -18268,7 +18270,8 @@ AudioSource:
   m_GameObject: {fileID: 2033964910}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 6f5dc4bd7c0d31e42a900608065078b1,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: c1d85452673814f4b965e8d0bb6e336b, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.5
