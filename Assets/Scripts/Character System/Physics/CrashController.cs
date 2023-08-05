@@ -62,6 +62,7 @@ namespace Character_System.Physics
         private void Restart()
         {
             HealthSystem.Instance.SubtractHealthPoint();
+            AudioSystem.Instance.PlaySoundEffect(AudioSystem.SoundEffect.Drown);
         }
 
         public void RestartCrashPoints()

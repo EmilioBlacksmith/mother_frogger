@@ -1,3 +1,4 @@
+using Audio;
 using Character_System.Physics;
 using Game_Manager;
 using Game_Manager.Timer_System;
@@ -36,6 +37,7 @@ namespace Character_System.HP_System
 
         public void SubtractHealthPoint()
         {
+            AudioSystem.Instance.PlaySoundEffect(AudioSystem.SoundEffect.Error);
             currentHealthPoints--;
             if (currentHealthPoints <= 0 && !IsGameOver)
             {

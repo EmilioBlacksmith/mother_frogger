@@ -69,6 +69,7 @@ namespace Game_Manager
 
         public void NextDifficulty()
         {
+            AudioSystem.Instance.PlaySoundEffect(AudioSystem.SoundEffect.NextLevel);
             HealthSystem.Instance.NextLevel();
             _difficultyLever++;
             _difficultyLever = Mathf.Clamp(_difficultyLever, 1, 5);
@@ -85,6 +86,7 @@ namespace Game_Manager
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
             AudioSystem.Instance.ResetMainAudioSpeed();
+            AudioSystem.Instance.PlaySoundEffect(AudioSystem.SoundEffect.GameOver);
         }
 
         public void SubmitPlayerScore()
