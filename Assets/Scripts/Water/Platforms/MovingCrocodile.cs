@@ -1,4 +1,5 @@
 using System.Collections;
+using Audio;
 using Character_System.HP_System;
 using Game_Manager;
 using Particles;
@@ -32,6 +33,7 @@ namespace Water.Platforms
             {
                 _eatingTheFrog = true;
                 ParticleSpawningSystem.Instance.SpawnBloodParticle(other.transform);
+                AudioSystem.Instance.PlaySoundEffect(AudioSystem.SoundEffect.EatenByCrocodile);
                 yield return _waitForDead;
                 HealthSystem.Instance.SubtractHealthPoint();
                 _eatingTheFrog = false;

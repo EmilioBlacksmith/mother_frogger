@@ -1,4 +1,5 @@
 using System.Collections;
+using Audio;
 using Game_Manager;
 using Particles;
 using UnityEngine;
@@ -36,6 +37,7 @@ namespace Cars_System
             if (other.gameObject.layer == collisionLayerInt)
             {
                 ParticleSpawningSystem.Instance.SpawnCrashParticle(other.transform);
+                AudioSystem.Instance.PlayCrash(other.transform);
                 _rigidbody.AddExplosionForce(300f, transform.position, 200f, 350f, ForceMode.Impulse);
                 Destroy(this.gameObject, 1.5f);
                 hasCrashed = true;

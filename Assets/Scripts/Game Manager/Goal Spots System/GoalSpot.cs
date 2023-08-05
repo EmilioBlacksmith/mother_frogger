@@ -1,4 +1,5 @@
 using System.Collections;
+using Audio;
 using Character_System.HP_System;
 using Particles;
 using UnityEngine;
@@ -32,6 +33,7 @@ namespace Game_Manager.Goal_Spots_System
             if (_available)
             {
                 ParticleSpawningSystem.Instance.SpawnCrossSpotParticle(other.transform);
+                AudioSystem.Instance.PlaySoundEffect(AudioSystem.SoundEffect.GoalSpotCrossed);
                 GoalSpotCrossed();
             }
             else

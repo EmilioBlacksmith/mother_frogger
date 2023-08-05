@@ -1,3 +1,4 @@
+using Audio;
 using Particles;
 using UnityEngine;
 
@@ -19,6 +20,11 @@ namespace Character_System.Physics
         private void Update()
         {
             if (CrashController.Instance.hasCrash) return;
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                AudioSystem.Instance.PlaySoundEffect(AudioSystem.SoundEffect.GrabObj);
+            }
         
             if (Input.GetMouseButton(0))
             {
@@ -43,6 +49,7 @@ namespace Character_System.Physics
             if (Input.GetMouseButtonUp(0))
             {
                 targetAnimator.SetBool(Grabbing, false);
+                AudioSystem.Instance.PlaySoundEffect(AudioSystem.SoundEffect.PlaceObj);
 
                 if (grabbedObj != null && alreadyGrabbing)
                 {

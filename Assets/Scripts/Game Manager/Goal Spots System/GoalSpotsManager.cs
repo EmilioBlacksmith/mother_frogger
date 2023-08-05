@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using Audio;
+using System.Linq;
 using UnityEngine;
 
 namespace Game_Manager.Goal_Spots_System
@@ -14,6 +15,7 @@ namespace Game_Manager.Goal_Spots_System
             if (totalTrue <= 0)
             {
                 GameManager.Instance.NextDifficulty();
+                AudioSystem.Instance.NextLevelAudioChange(GameManager.Instance.DifficultyLevel());
                 foreach (var goal in goalSpotsArray)
                 {
                     goal.RestartGoalSpot();

@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   postExposure:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 0
   contrast:
     m_OverrideState: 1
-    m_Value: 30
+    m_Value: 25
   colorFilter:
     m_OverrideState: 1
     m_Value: {r: 1, g: 1, b: 1, a: 1}
@@ -27,7 +27,7 @@ MonoBehaviour:
     m_Value: -4.5
   saturation:
     m_OverrideState: 1
-    m_Value: 40
+    m_Value: 50
 --- !u!114 &-2953701756064555507
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -49,13 +49,29 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.388
+    m_Value: 0.4
   smoothness:
     m_OverrideState: 1
-    m_Value: 0.2
+    m_Value: 0.3
   rounded:
     m_OverrideState: 0
     m_Value: 0
+--- !u!114 &-1925153545935358417
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81180773991d8724ab7f2d216912b564, type: 3}
+  m_Name: ChromaticAberration
+  m_EditorClassIdentifier: 
+  active: 1
+  intensity:
+    m_OverrideState: 1
+    m_Value: 0.1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,10 +85,12 @@ MonoBehaviour:
   m_Name: Volume Profile
   m_EditorClassIdentifier: 
   components:
+  - {fileID: 8966000577434437779}
   - {fileID: -3569163722345146951}
   - {fileID: 5677867264553080233}
   - {fileID: 5408214304640248722}
   - {fileID: -2953701756064555507}
+  - {fileID: -1925153545935358417}
 --- !u!114 &5408214304640248722
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -127,17 +145,17 @@ MonoBehaviour:
         - serializedVersion: 3
           time: 0.13963039
           value: 0.15878797
-          inSlope: 1.0522135
-          outSlope: 1.0522135
+          inSlope: 0.93334925
+          outSlope: 0.93334925
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 0.84071577
-          value: 0.8981818
-          inSlope: 0.9535659
-          outSlope: 0.9535659
+          time: 0.97609
+          value: 0.9942029
+          inSlope: 0.30159086
+          outSlope: 0.30159086
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
@@ -299,3 +317,19 @@ MonoBehaviour:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
+--- !u!114 &8966000577434437779
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97c23e3b12dc18c42a140437e53d3951, type: 3}
+  m_Name: Tonemapping
+  m_EditorClassIdentifier: 
+  active: 1
+  mode:
+    m_OverrideState: 1
+    m_Value: 1

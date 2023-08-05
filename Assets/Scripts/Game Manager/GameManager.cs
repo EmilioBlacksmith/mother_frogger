@@ -1,3 +1,4 @@
+using Audio;
 using Character_System.HP_System;
 using Character_System.Physics;
 using Game_Manager.Goal_Spots_System;
@@ -68,6 +69,7 @@ namespace Game_Manager
 
         public void NextDifficulty()
         {
+            AudioSystem.Instance.PlaySoundEffect(AudioSystem.SoundEffect.NextLevel);
             HealthSystem.Instance.NextLevel();
             _difficultyLever++;
             _difficultyLever = Mathf.Clamp(_difficultyLever, 1, 5);
@@ -83,6 +85,8 @@ namespace Game_Manager
             ScoreSystem.ShowGameOverUI();
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
+            AudioSystem.Instance.ResetMainAudioSpeed();
+            AudioSystem.Instance.PlaySoundEffect(AudioSystem.SoundEffect.GameOver);
         }
 
         public void SubmitPlayerScore()
