@@ -9,6 +9,7 @@ namespace Game_Manager.Score_System
     {
         [SerializeField] private TextMeshProUGUI scoreText;
         [SerializeField] private GameObject gameOverUI;
+        [SerializeField] private GameObject gameHUD;
         
         private int _score = 0;
 
@@ -34,6 +35,10 @@ namespace Game_Manager.Score_System
 
         public void AllGoalSpotsCrossed() => AddScore(1000);
 
-        public void ShowGameOverUI() => gameOverUI.SetActive(true);
+        public void ShowGameOverUI()
+        {
+            gameOverUI.SetActive(true);
+            gameHUD.SetActive(false);
+        }
     }
 }

@@ -81,6 +81,8 @@ public class HUDSystem : MonoBehaviour
 
     public void UpdateHealthPoints(int currentHealthPoints)
     {
+        if (currentHealthPoints <= 0) return; 
+
         for (int i = healthPoints.Length-1; i >= currentHealthPoints; i--)
         {
             _healthPointsImageComponents[i].sprite = healthPointDisabled;

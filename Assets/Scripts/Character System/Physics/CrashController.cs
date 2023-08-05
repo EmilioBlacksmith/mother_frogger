@@ -1,4 +1,5 @@
 using System.Collections;
+using Audio;
 using Cars_System;
 using Character_System.HP_System;
 using Particles;
@@ -77,6 +78,7 @@ namespace Character_System.Physics
             recovering = true;
             
             ParticleSpawningSystem.Instance.SpawnCrashParticle(other.transform);
+            AudioSystem.Instance.PlayCrash(other.transform);
             CarMovement car = other.GetComponent<CarMovement>();
 
             if (car != null)

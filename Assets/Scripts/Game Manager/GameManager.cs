@@ -1,3 +1,4 @@
+using Audio;
 using Character_System.HP_System;
 using Character_System.Physics;
 using Game_Manager.Goal_Spots_System;
@@ -83,6 +84,7 @@ namespace Game_Manager
             ScoreSystem.ShowGameOverUI();
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
+            AudioSystem.Instance.ResetMainAudioSpeed();
         }
 
         public void SubmitPlayerScore()
