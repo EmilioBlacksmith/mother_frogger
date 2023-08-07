@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.98930883, g: 0.9664945, b: 1.0062399, a: 1}
+  m_IndirectSpecularColor: {r: 1.1202018, g: 0.9919207, b: 0.91516536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10140,8 +10140,18 @@ MonoBehaviour:
   crashPoints: 3
   startingCrashPoints: 3
   timeAfterHit: 1.5
+  collisionLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+  invisibleLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  frogRenderer: {fileID: 1741238750}
+  normalMaterial: {fileID: 2100000, guid: 31abdfda89417d1468db51dd5268fe57, type: 2}
+  invisibleMaterial: {fileID: 2100000, guid: 76a263a37ac7a0d4daab091748b21ab5, type: 2}
   hasCrash: 0
   recovering: 0
+  allJoints: []
 --- !u!136 &1015214004
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -19452,6 +19462,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Barrel
       objectReference: {fileID: 0}
+    - target: {fileID: 6168360784679083329, guid: 9998489069b8c594fa17d5885415aece,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6832448677551753211, guid: 9998489069b8c594fa17d5885415aece,
         type: 3}
       propertyPath: m_RootOrder
@@ -19460,7 +19475,7 @@ PrefabInstance:
     - target: {fileID: 6832448677551753211, guid: 9998489069b8c594fa17d5885415aece,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 17.5
+      value: 39.2
       objectReference: {fileID: 0}
     - target: {fileID: 6832448677551753211, guid: 9998489069b8c594fa17d5885415aece,
         type: 3}
@@ -19470,7 +19485,7 @@ PrefabInstance:
     - target: {fileID: 6832448677551753211, guid: 9998489069b8c594fa17d5885415aece,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 12.261098
+      value: 5.9
       objectReference: {fileID: 0}
     - target: {fileID: 6832448677551753211, guid: 9998489069b8c594fa17d5885415aece,
         type: 3}
