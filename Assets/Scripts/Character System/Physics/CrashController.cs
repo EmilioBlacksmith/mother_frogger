@@ -96,7 +96,6 @@ namespace Character_System.Physics
             recovering = true;
             
             ParticleSpawningSystem.Instance.SpawnCrashParticle(other.transform);
-            AudioSystem.Instance.PlayCrash(other.transform);
             CarMovement car = other.GetComponent<CarMovement>();
 
             if (car != null)

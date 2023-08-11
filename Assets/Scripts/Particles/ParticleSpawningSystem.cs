@@ -55,7 +55,7 @@ namespace Particles
 
         private void SpawnParticle(GameObject particleToSpawn, Transform spawnPosition)
         {
-            Instantiate(particleToSpawn, spawnPosition.position, particleToSpawn.transform.rotation);
+            ObjectPoolManager.SpawnObject(particleToSpawn, spawnPosition.position, particleToSpawn.transform.rotation, ObjectPoolManager.PoolType.ParticleObject);
         }
     }
 }

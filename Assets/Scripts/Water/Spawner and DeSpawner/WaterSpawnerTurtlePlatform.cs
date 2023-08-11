@@ -41,10 +41,11 @@ namespace Water.Spawner_and_DeSpawner
             switch (_randomNum)
             {
                 case 0:
-                    Instantiate(triplePlatform, transform.position, _thisDirectionRotation);
+                    //Instantiate(triplePlatform, transform.position, _thisDirectionRotation);
+                    ObjectPoolManager.SpawnObject(triplePlatform, transform.position, _thisDirectionRotation, ObjectPoolManager.PoolType.WaterObject);
                     break;
                 case 1:
-                    Instantiate(doublePlatform, transform.position, _thisDirectionRotation);
+                    ObjectPoolManager.SpawnObject(doublePlatform, transform.position, _thisDirectionRotation, ObjectPoolManager.PoolType.WaterObject);
                     break;
             }
             _timer = 0;
@@ -63,8 +64,8 @@ namespace Water.Spawner_and_DeSpawner
                 var positionSpawn = transform.position;
                 var newObj = _randomNum switch
                 {
-                    0 => Instantiate(triplePlatform, positionSpawn, _thisDirectionRotation),
-                    1 => Instantiate(doublePlatform, positionSpawn, _thisDirectionRotation),
+                    0 => ObjectPoolManager.SpawnObject(triplePlatform, positionSpawn, _thisDirectionRotation, ObjectPoolManager.PoolType.WaterObject),
+                    1 => ObjectPoolManager.SpawnObject(doublePlatform, positionSpawn, _thisDirectionRotation, ObjectPoolManager.PoolType.WaterObject),
                     _ => null
                 };
                 //Destroy(newObj, lifeSpan * (10 - GameManager.Instance.DifficultyLevel()));;
