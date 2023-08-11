@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4336419380585231990}
   - component: {fileID: 4336419380585231991}
   - component: {fileID: 4336419380585231984}
+  - component: {fileID: 5807684516003850481}
   m_Layer: 0
   m_Name: Footstep
   m_TagString: Untagged
@@ -44,7 +45,7 @@ ParticleSystem:
   serializedVersion: 8
   lengthInSec: 0.1
   simulationSpeed: 5
-  stopAction: 2
+  stopAction: 3
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
@@ -4813,3 +4814,15 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &5807684516003850481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4336419380585231985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5f3b77d9f6c2574e9b57e5e1d27338f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

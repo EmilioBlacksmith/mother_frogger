@@ -14,7 +14,7 @@ namespace Cars_System
 
         [SerializeField] private CarDirection thisDirection;
         [SerializeField] private GameObject objectToSpawn;
-        [SerializeField] private float lifeSpan = 10;
+        //[SerializeField] private float lifeSpan = 10;
         [SerializeField] private float startingTimeBetweenSpawn = 7.5f;
 
         private float _timeBetweenSpawn;
@@ -24,7 +24,7 @@ namespace Cars_System
         private readonly Quaternion _normalRotationDirection = Quaternion.Euler(0,90,0);
         private Quaternion _thisDirectionRotation = Quaternion.Euler(0,90,0);
 
-        private void Start()
+        private void Awake()
         {
             _thisDirectionRotation = thisDirection switch
             {
@@ -32,9 +32,10 @@ namespace Cars_System
                 CarDirection.Inverse => _inverseRotationDirection,
                 _ => _thisDirectionRotation
             };
-            
-            var newObj = Instantiate(objectToSpawn, transform.position, _thisDirectionRotation);
-            Destroy(newObj, lifeSpan * (10 - GameManager.Instance.DifficultyLevel()));
+
+            //var newObj = Instantiate(objectToSpawn, transform.position, _thisDirectionRotation);
+            ObjectPoolManager.SpawnObject(objectToSpawn, transform.position, _thisDirectionRotation, ObjectPoolManager.PoolType.CarObject);
+           // Destroy(newObj, lifeSpan * (10 - GameManager.Instance.DifficultyLevel()));
             _timer = 0;
             _timeBetweenSpawn = startingTimeBetweenSpawn;
         }
@@ -44,12 +45,12 @@ namespace Cars_System
             if(HealthSystem.Instance.IsGameOver) return;
         
             _timeBetweenSpawn = startingTimeBetweenSpawn - (GameManager.Instance.DifficultyLevel() * 1.5f);
-            _timeBetweenSpawn = Mathf.Clamp(_timeBetweenSpawn, 1f, 10f);
+            _timeBetweenSpawn = Mathf.Clamp(_timeBetweenSpawn, 1f, 15f);
         
             if (_timer >= _timeBetweenSpawn)
             {
-                var newObj = Instantiate(objectToSpawn, transform.position, _thisDirectionRotation);
-                Destroy(newObj, lifeSpan);
+                ObjectPoolManager.SpawnObject(objectToSpawn, transform.position, _thisDirectionRotation, ObjectPoolManager.PoolType.CarObject);
+                //Destroy(newObj, lifeSpan);
                 _timer = 0;
             }
 

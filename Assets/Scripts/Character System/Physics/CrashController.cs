@@ -20,10 +20,20 @@ namespace Character_System.Physics
         [SerializeField] private int crashPoints = 3;
         [SerializeField] private int startingCrashPoints = 4;
         [SerializeField] private float timeAfterHit = 3;
+
+        [SerializeField] private LayerMask collisionLayerMask;
+        [SerializeField] private LayerMask invisibleLayerMask;
+
+        [Header("Material")]
+        [SerializeField] private Renderer frogRenderer;
+        [SerializeField] private Material normalMaterial;
+        [SerializeField] private Material invisibleMaterial;
     
     
         public bool hasCrash;
         public bool recovering;
+
+        [SerializeField] private ConfigurableJoint[] allJoints;
         
         private void Awake()
         {
@@ -43,6 +53,13 @@ namespace Character_System.Physics
             hasCrash = false;
             recovering = false;
             HUDSystem.Instance?.AllocateCrashPoints(crashPoints);
+
+            allJoints = new ConfigurableJoint[bodyJoints.Length + 1];
+            for(int i = 0; i < bodyJoints.Length; i++)
+            {
+                allJoints[i] = bodyJoints[i];
+            }
+            allJoints[allJoints.Length - 1] = hipJoint;
         }
 
         private void Update()
@@ -79,7 +96,6 @@ namespace Character_System.Physics
             recovering = true;
             
             ParticleSpawningSystem.Instance.SpawnCrashParticle(other.transform);
-            AudioSystem.Instance.PlayCrash(other.transform);
             CarMovement car = other.GetComponent<CarMovement>();
 
             if (car != null)
@@ -91,6 +107,8 @@ namespace Character_System.Physics
 
             crashPoints--;
             HUDSystem.Instance.UpdateCrashPoints(crashPoints);
+
+            
         
             StartCoroutine(WaitTillFixed());
         }
@@ -118,6 +136,7 @@ namespace Character_System.Physics
             hipJoint.angularYZDrive = hipsJointDriveYZ;
 
             hasCrash = false;
+            BecomeInvisible();
 
             StartCoroutine(Recovering());
         }
@@ -129,6 +148,7 @@ namespace Character_System.Physics
             if(HealthSystem.Instance.IsGameOver) yield break;
 
             recovering = false;
+            BecomeVisible();
         }
 
         public void CrashedJoints()
@@ -149,6 +169,24 @@ namespace Character_System.Physics
             hipsJointDriveYZ.positionSpring = crashForceSpring;
             hipJoint.angularXDrive = hipsJointDriveX;
             hipJoint.angularYZDrive = hipsJointDriveYZ;
+        }
+
+        private void BecomeInvisible()
+        {
+            foreach (var joint in allJoints)
+            {
+                joint.gameObject.layer = LayerMask.NameToLayer("Character Invisible");
+                frogRenderer.material = invisibleMaterial;
+            }
+        }
+
+        private void BecomeVisible()
+        {
+            foreach (var joint in allJoints)
+            {
+                joint.gameObject.layer = LayerMask.NameToLayer("Character");
+                frogRenderer.material = normalMaterial;
+            }
         }
     }
 }

@@ -9635,6 +9635,7 @@ GameObject:
   - component: {fileID: 2100586266128939890}
   - component: {fileID: 2100586266128939891}
   - component: {fileID: 2100586266128939788}
+  - component: {fileID: 7188163254728668074}
   m_Layer: 0
   m_Name: Crash Particles
   m_TagString: Untagged
@@ -9669,7 +9670,7 @@ ParticleSystem:
   serializedVersion: 8
   lengthInSec: 0.5
   simulationSpeed: 5
-  stopAction: 2
+  stopAction: 3
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
@@ -14438,3 +14439,15 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &7188163254728668074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2100586266128939789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5f3b77d9f6c2574e9b57e5e1d27338f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

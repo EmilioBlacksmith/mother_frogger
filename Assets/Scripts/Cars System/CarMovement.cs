@@ -15,12 +15,19 @@ namespace Cars_System
         private Rigidbody _rigidbody;
         private float _speed;
         
-        private readonly WaitForSeconds _waitForDead = new WaitForSeconds(.25f); 
+        private readonly WaitForSeconds _waitForDead = new WaitForSeconds(.25f);
+        private readonly WaitForSeconds _waitForCrash = new WaitForSeconds(1f);
+
 
         private void Start()
         {
             _rigidbody = GetComponent<Rigidbody>();
             _speed = startingSpeed;
+        }
+
+        private void OnEnable()
+        {
+            hasCrashed = false;
         }
 
         private void FixedUpdate()
@@ -34,23 +41,34 @@ namespace Cars_System
 
         private void OnCollisionEnter(Collision other)
         {
-            if (other.gameObject.layer == collisionLayerInt)
+            if (other.gameObject.layer == collisionLayerInt && !hasCrashed)
             {
                 ParticleSpawningSystem.Instance.SpawnCrashParticle(other.transform);
-                AudioSystem.Instance.PlayCrash(other.transform);
-                _rigidbody.AddExplosionForce(300f, transform.position, 200f, 350f, ForceMode.Impulse);
-                Destroy(this.gameObject, 1.5f);
+                //_rigidbody.AddExplosionForce(150f, transform.position, 100f, 175f, ForceMode.Impulse);
+                //Destroy(this.gameObject, 1.5f);
                 hasCrashed = true;
+                AudioSystem.Instance.PlayCrash(other.transform);
+                StartCoroutine(CrashObject());
                 //_rigidbody.velocity = Vector3.zero;
             }
         }
 
+        public IEnumerator CrashObject()
+        {
+            yield return _waitForCrash;
+            ObjectPoolManager.ReturnObjectToPool(gameObject);
+        }
+
         public IEnumerator CrashPlayer()
         {
+            AudioSystem.Instance.PlayCrash(transform);
+            //_rigidbody.AddExplosionForce(150f, transform.position, 100f, 175f, ForceMode.Impulse);
             yield return _waitForDead;
-            _rigidbody.AddExplosionForce(150f, transform.position, 100f, 175f, ForceMode.Impulse);
+            
             hasCrashed = true;
-            Destroy(this.gameObject, .75f);
+            yield return _waitForCrash;
+
+            ObjectPoolManager.ReturnObjectToPool(gameObject);
         }
     }
 }

@@ -8,7 +8,8 @@ namespace Cars_System
         {
             if (other.gameObject.CompareTag("Car") || other.gameObject.CompareTag("WaterObj"))
             {
-                Destroy(other.gameObject);
+                //Destroy(other.gameObject);
+                ObjectPoolManager.ReturnObjectToPool(other.gameObject);
             }
         }
     }

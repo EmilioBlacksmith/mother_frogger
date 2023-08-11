@@ -42,10 +42,12 @@ namespace Water.Spawner_and_DeSpawner
             switch (_randomNum)
             {
                 case 3:
-                    Instantiate(crocodileTrap, transform.position, _thisDirectionRotation);
+                    //Instantiate(crocodileTrap, transform.position, _thisDirectionRotation);
+                    ObjectPoolManager.SpawnObject(crocodileTrap, transform.position, _thisDirectionRotation, ObjectPoolManager.PoolType.WaterObject);
                     break;
                 default:
-                    Instantiate(woodLogPlatform, transform.position, _thisDirectionRotation);
+                    //Instantiate(woodLogPlatform, transform.position, _thisDirectionRotation);
+                    ObjectPoolManager.SpawnObject(woodLogPlatform, transform.position, _thisDirectionRotation, ObjectPoolManager.PoolType.WaterObject);
                     break;
             }
             _timer = 0;
@@ -64,9 +66,8 @@ namespace Water.Spawner_and_DeSpawner
                 var positionSpawn = transform.position;
                 var newObj = _randomNum switch
                 {
-                    3 => Instantiate(crocodileTrap, positionSpawn, _thisDirectionRotation),
-                    2 => Instantiate(crocodileTrap, positionSpawn, _thisDirectionRotation),
-                    _ => Instantiate(woodLogPlatform, positionSpawn, _thisDirectionRotation)
+                    3 => ObjectPoolManager.SpawnObject(crocodileTrap, transform.position, _thisDirectionRotation, ObjectPoolManager.PoolType.WaterObject),
+                    _ => ObjectPoolManager.SpawnObject(woodLogPlatform, transform.position, _thisDirectionRotation, ObjectPoolManager.PoolType.WaterObject)
                 };
                 //Destroy(newObj, lifeSpan * (10 - GameManager.Instance.DifficultyLevel()));
                 

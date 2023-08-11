@@ -10,7 +10,7 @@ namespace Water.Platforms
         private Rigidbody _rigidbody;
         private Transform _frogParent;
 
-        private void Start()
+        private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody>();
             _speed = startingSpeed;
