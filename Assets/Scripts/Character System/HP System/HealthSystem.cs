@@ -53,9 +53,19 @@ namespace Character_System.HP_System
             }
         }
 
+        private void AddHealthPoint()
+        {
+            if(currentHealthPoints < startingHealthPoints)
+            {
+                currentHealthPoints++;
+                HUDSystem.Instance.UpdateHealthPoints(currentHealthPoints);
+            }
+        }
+
         public void NextLevel()
         {
             player.transform.position = startingPosition.position;
+            AddHealthPoint();
             CrashController.Instance.RestartCrashPoints();
             GameManager.Instance.TimerManager.RestartTimer();
             ParticleSpawningSystem.Instance.SpawnSpawningParticle(player.transform);
