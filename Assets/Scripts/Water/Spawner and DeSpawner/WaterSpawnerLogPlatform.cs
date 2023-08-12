@@ -57,8 +57,8 @@ namespace Water.Spawner_and_DeSpawner
         {
             if(HealthSystem.Instance.IsGameOver) return;
 
-            _timeBetweenSpawn = startingTimeBetweenSpawn - (GameManager.Instance.DifficultyLevel() * 2f);
-            _timeBetweenSpawn = Mathf.Clamp(_timeBetweenSpawn, 2f, 10);
+            _timeBetweenSpawn = startingTimeBetweenSpawn; //- (GameManager.Instance.DifficultyLevel() * 2f)
+            _timeBetweenSpawn = Mathf.Clamp(_timeBetweenSpawn, 4f, 12f);
         
             if (_timer >= _timeBetweenSpawn)
             {
@@ -67,6 +67,7 @@ namespace Water.Spawner_and_DeSpawner
                 var newObj = _randomNum switch
                 {
                     3 => ObjectPoolManager.SpawnObject(crocodileTrap, transform.position, _thisDirectionRotation, ObjectPoolManager.PoolType.WaterObject),
+                    2 => ObjectPoolManager.SpawnObject(crocodileTrap, transform.position, _thisDirectionRotation, ObjectPoolManager.PoolType.WaterObject),
                     _ => ObjectPoolManager.SpawnObject(woodLogPlatform, transform.position, _thisDirectionRotation, ObjectPoolManager.PoolType.WaterObject)
                 };
                 //Destroy(newObj, lifeSpan * (10 - GameManager.Instance.DifficultyLevel()));

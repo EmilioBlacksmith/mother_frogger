@@ -12,7 +12,7 @@ namespace Character_System
     
         [SerializeField] private Transform hipTransform;
 
-        private void Start()
+        private void Awake()
         {
             Cursor.lockState = CursorLockMode.Locked;
         }

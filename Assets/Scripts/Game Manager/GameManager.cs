@@ -71,6 +71,7 @@ namespace Game_Manager
         {
             AudioSystem.Instance.PlaySoundEffect(AudioSystem.SoundEffect.NextLevel);
             HealthSystem.Instance.NextLevel();
+            HealthSystem.Instance.AddHealthPoint();
             _difficultyLever++;
             _difficultyLever = Mathf.Clamp(_difficultyLever, 1, 5);
             ScoreSystem.AllGoalSpotsCrossed();
