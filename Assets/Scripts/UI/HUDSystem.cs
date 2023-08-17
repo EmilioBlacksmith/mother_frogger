@@ -85,7 +85,7 @@ public class HUDSystem : MonoBehaviour
 
         foreach(var healthPoint in _healthPointsImageComponents) { healthPoint.sprite = healthPointActive;}
 
-        Debug.Log("Current Health: " + currentHealthPoints);
+        //Debug.Log("Current Health: " + currentHealthPoints);
 
         for (int i = healthPoints.Length-1; i >= currentHealthPoints; i--)
         {
