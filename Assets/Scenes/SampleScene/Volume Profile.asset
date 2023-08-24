@@ -27,7 +27,53 @@ MonoBehaviour:
     m_Value: -4.5
   saturation:
     m_OverrideState: 1
-    m_Value: 50
+    m_Value: 60
+--- !u!114 &-3124571864887120015
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c01700fd266d6914ababb731e09af2eb, type: 3}
+  m_Name: DepthOfField
+  m_EditorClassIdentifier: 
+  active: 1
+  mode:
+    m_OverrideState: 1
+    m_Value: 1
+  gaussianStart:
+    m_OverrideState: 1
+    m_Value: 1
+  gaussianEnd:
+    m_OverrideState: 1
+    m_Value: 1000
+  gaussianMaxRadius:
+    m_OverrideState: 1
+    m_Value: 0.5
+  highQualitySampling:
+    m_OverrideState: 1
+    m_Value: 0
+  focusDistance:
+    m_OverrideState: 1
+    m_Value: 2.24
+  aperture:
+    m_OverrideState: 1
+    m_Value: 32
+  focalLength:
+    m_OverrideState: 1
+    m_Value: 114.2
+  bladeCount:
+    m_OverrideState: 0
+    m_Value: 5
+  bladeCurvature:
+    m_OverrideState: 0
+    m_Value: 0
+  bladeRotation:
+    m_OverrideState: 0
+    m_Value: -85.9
 --- !u!114 &-2953701756064555507
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -56,22 +102,6 @@ MonoBehaviour:
   rounded:
     m_OverrideState: 0
     m_Value: 0
---- !u!114 &-1925153545935358417
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81180773991d8724ab7f2d216912b564, type: 3}
-  m_Name: ChromaticAberration
-  m_EditorClassIdentifier: 
-  active: 1
-  intensity:
-    m_OverrideState: 1
-    m_Value: 0.1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90,7 +120,7 @@ MonoBehaviour:
   - {fileID: 5677867264553080233}
   - {fileID: 5408214304640248722}
   - {fileID: -2953701756064555507}
-  - {fileID: -1925153545935358417}
+  - {fileID: -3124571864887120015}
 --- !u!114 &5408214304640248722
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -143,10 +173,10 @@ MonoBehaviour:
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 0.13963039
-          value: 0.15878797
-          inSlope: 0.93334925
-          outSlope: 0.93334925
+          time: 0.11850947
+          value: 0.118811905
+          inSlope: 0.8103956
+          outSlope: 0.8103956
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
@@ -154,8 +184,8 @@ MonoBehaviour:
         - serializedVersion: 3
           time: 0.97609
           value: 0.9942029
-          inSlope: 0.30159086
-          outSlope: 0.30159086
+          inSlope: 0.3379904
+          outSlope: 0.3379904
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
