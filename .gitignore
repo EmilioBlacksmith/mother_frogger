@@ -10,9 +10,8 @@
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
 
-/Assets/Scenes/GameLevel/
-/Assets/Scenes/MainMenu/
-/Assets/Scenes/SampleScene/
+/[Aa]ssets/[Ss]cenes/[Gg]ameLevel/
+/[Aa]ssets/[Ss]cenes/[Mm]ainMenu/
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
