@@ -35,7 +35,7 @@ namespace Cars_System
             if (!hasCrashed)
             {
                 //transform.Translate(Vector3.forward * (speed * Time.deltaTime));
-                _rigidbody.velocity = transform.forward * (_speed + (GameManager.Instance.DifficultyLevel() * 10));
+                _rigidbody.velocity = transform.forward * (_speed + (GameManager.Instance.DifficultyLevel() * 15));
             }
         }
 

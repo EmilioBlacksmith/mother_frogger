@@ -44,8 +44,8 @@ namespace Cars_System
         {
             if(HealthSystem.Instance.IsGameOver) return;
         
-            _timeBetweenSpawn = startingTimeBetweenSpawn - (GameManager.Instance.DifficultyLevel() * 1f);
-            _timeBetweenSpawn = Mathf.Clamp(_timeBetweenSpawn, 1f, 15f);
+            _timeBetweenSpawn = startingTimeBetweenSpawn - (GameManager.Instance.DifficultyLevel() * 1.75f);
+            _timeBetweenSpawn = Mathf.Clamp(_timeBetweenSpawn, 1.5f, 15f);
         
             if (_timer >= _timeBetweenSpawn)
             {
