@@ -62,7 +62,7 @@ namespace Water.Spawner_and_DeSpawner
         
             if (_timer >= _timeBetweenSpawn)
             {
-                _randomNum = (Random.Range(0, 5000))%(15 / GameManager.Instance.DifficultyLevel());
+                _randomNum = (Random.Range(0, 5000))%12;
                 var positionSpawn = transform.position;
                 var newObj = _randomNum switch
                 {
