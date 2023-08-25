@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6224807891882757933}
   - component: {fileID: 1755161368420462050}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Powerline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 1573443846307569611}
   - component: {fileID: 124544456593990262}
   - component: {fileID: 3431516602739198718}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Shape001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 1634130606327485166}
   - component: {fileID: 8319820285531614996}
   - component: {fileID: 4705462293419097135}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: poteau_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}

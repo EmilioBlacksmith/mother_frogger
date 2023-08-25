@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 148374550416292398}
   - component: {fileID: 4923910449638657375}
   - component: {fileID: 397891969784225223}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Graffiti Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 162765404481928056}
   - component: {fileID: 8663834262251547218}
   - component: {fileID: 7053519156768024986}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Wall_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 8723448331287716277}
   - component: {fileID: 5718019660151889756}
   - component: {fileID: 6058418085804956551}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Wall_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}

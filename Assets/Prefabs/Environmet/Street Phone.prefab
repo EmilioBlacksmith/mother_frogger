@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5399212893993247941}
   - component: {fileID: 7856860282817990671}
   - component: {fileID: 8847525347611069573}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Street Phone
   m_TagString: Untagged
   m_Icon: {fileID: 0}

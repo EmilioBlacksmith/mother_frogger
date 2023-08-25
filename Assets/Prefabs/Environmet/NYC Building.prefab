@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3013194287691698228}
   - component: {fileID: 4572272541121898707}
   - component: {fileID: 5152224502415484311}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Windows_UBM_Tanner_Building_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 7486907317715451316}
   - component: {fileID: 1162023575822504421}
   - component: {fileID: 3241146457990820074}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ROOF_UBM_Tanner_Building_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 537090437420360260}
   - component: {fileID: 3915332725999108422}
   - component: {fileID: 8777171795715109792}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FACADE_UBM_Tanner_Building_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 5356128741760552890}
   - component: {fileID: 1410250117756420002}
   - component: {fileID: 4017185497321080657}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TRIM_MESH_1_UBM_Tanner_Building_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -344,7 +344,7 @@ GameObject:
   - component: {fileID: 8785295924373697443}
   - component: {fileID: 922168167444034793}
   - component: {fileID: 6619147627401155209}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FIRST_FLOOR_MESH_3_UBM_Tanner_Building_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -427,7 +427,7 @@ GameObject:
   - component: {fileID: 8730034383322227263}
   - component: {fileID: 6104449583223556712}
   - component: {fileID: 4878551721591745983}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FIRST_FLOOR_MESH_2_UBM_Tanner_Building_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -510,7 +510,7 @@ GameObject:
   - component: {fileID: 2224869368006861167}
   - component: {fileID: 2799167574028110152}
   - component: {fileID: 1386403610041848958}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FIRST_FLOOR_MESH_1_UBM_Tanner_Building_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -593,7 +593,7 @@ GameObject:
   - component: {fileID: 8902690833681727389}
   - component: {fileID: 4682675292871367089}
   - component: {fileID: 8518429884279333264}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: NYC Building
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -685,7 +685,7 @@ GameObject:
   - component: {fileID: 2646132727256003549}
   - component: {fileID: 3238235906982225414}
   - component: {fileID: 2181391549472130429}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LOD_UBM_Tanner_Building_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -768,7 +768,7 @@ GameObject:
   - component: {fileID: 4084155495334589379}
   - component: {fileID: 3326968405954862019}
   - component: {fileID: 5467966255690676299}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Aircons_UBM_Tanner_Building_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -851,7 +851,7 @@ GameObject:
   - component: {fileID: 338873607796769605}
   - component: {fileID: 3720350066932222010}
   - component: {fileID: 7456253895828192246}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: WALLS_UBM_Tanner_Building_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -934,7 +934,7 @@ GameObject:
   - component: {fileID: 4122090278965398902}
   - component: {fileID: 1357629747085821088}
   - component: {fileID: 4265609090072560723}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TRIM_MESH_2_UBM_Tanner_Building_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}

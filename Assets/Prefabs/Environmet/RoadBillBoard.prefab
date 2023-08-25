@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6065547994213790059}
   - component: {fileID: 4894483030255644145}
   - component: {fileID: 4894483030255644146}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RoadBillBoard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
+  m_StaticShadowCaster: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
