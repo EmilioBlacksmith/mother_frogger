@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 4477570557040101968}
   - component: {fileID: 2676117581453077383}
   - component: {fileID: 2676117581453077380}
+  - component: {fileID: -2866926119239099148}
   m_Layer: 6
   m_Name: Road Barrier
   m_TagString: Grabbable
@@ -198,3 +199,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-2866926119239099148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2676117581453077381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1309d630145afd479527ca9f49f6a85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

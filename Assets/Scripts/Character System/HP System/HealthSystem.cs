@@ -53,7 +53,7 @@ namespace Character_System.HP_System
             }
         }
 
-        private void AddHealthPoint()
+        public void AddHealthPoint()
         {
             if(currentHealthPoints < startingHealthPoints)
             {
@@ -65,7 +65,7 @@ namespace Character_System.HP_System
         public void NextLevel()
         {
             player.transform.position = startingPosition.position;
-            AddHealthPoint();
+            //AddHealthPoint();
             CrashController.Instance.RestartCrashPoints();
             GameManager.Instance.TimerManager.RestartTimer();
             ParticleSpawningSystem.Instance.SpawnSpawningParticle(player.transform);

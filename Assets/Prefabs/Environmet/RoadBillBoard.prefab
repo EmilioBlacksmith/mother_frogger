@@ -13,12 +13,12 @@ GameObject:
   - component: {fileID: 6065547994213790059}
   - component: {fileID: 4894483030255644145}
   - component: {fileID: 4894483030255644146}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RoadBillBoard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4928639070901225988
 Transform:

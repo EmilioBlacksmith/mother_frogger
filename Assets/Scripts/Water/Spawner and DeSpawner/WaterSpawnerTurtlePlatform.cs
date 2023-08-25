@@ -54,9 +54,9 @@ namespace Water.Spawner_and_DeSpawner
         private void Update()
         {
             if(HealthSystem.Instance.IsGameOver) return;
-            
-            _timeBetweenSpawn = startingTimeBetweenSpawn - (GameManager.Instance.DifficultyLevel() * 2f);
-            _timeBetweenSpawn = Mathf.Clamp(_timeBetweenSpawn, 2f, 10);
+
+            _timeBetweenSpawn = startingTimeBetweenSpawn; //- (GameManager.Instance.DifficultyLevel() * 2f);
+            _timeBetweenSpawn = Mathf.Clamp(_timeBetweenSpawn, 3f, 12f);
         
             if (_timer >= _timeBetweenSpawn)
             {

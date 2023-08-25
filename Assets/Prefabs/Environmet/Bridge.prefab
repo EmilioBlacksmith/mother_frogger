@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 2244468078987705275}
   - component: {fileID: 3588000110540411917}
   - component: {fileID: 6220760603449347435}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ConcreteBridgeSupport
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &6220760603449347434
 Transform:
@@ -108,12 +108,12 @@ GameObject:
   - component: {fileID: 4924787837190739542}
   - component: {fileID: 2088229842777660022}
   - component: {fileID: 2170555349849498895}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ConcreteBridgeSpan.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4924787837190739542
 Transform:
@@ -191,12 +191,12 @@ GameObject:
   - component: {fileID: 2700394686077982437}
   - component: {fileID: 8588555970482777106}
   - component: {fileID: 7971042814458388396}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ConcreteBridgeSpan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &2700394686077982437
 Transform:
@@ -274,12 +274,12 @@ GameObject:
   - component: {fileID: 834619826935239319}
   - component: {fileID: 774472438688541399}
   - component: {fileID: 1756099517570223859}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ConcreteBridgeSpan.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &834619826935239319
 Transform:
@@ -357,12 +357,12 @@ GameObject:
   - component: {fileID: 6539916231156153766}
   - component: {fileID: 9006250052949873189}
   - component: {fileID: 4869701984375551529}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ConcreteBridgeSpan.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &6539916231156153766
 Transform:
@@ -438,12 +438,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3943710397259622581}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &3943710397259622581
 Transform:
@@ -479,12 +479,12 @@ GameObject:
   - component: {fileID: 5964678752727588314}
   - component: {fileID: 5596253018483913656}
   - component: {fileID: 4437111855017907353}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ballast.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &5964678752727588314
 Transform:
@@ -562,12 +562,12 @@ GameObject:
   - component: {fileID: 3966017313337401603}
   - component: {fileID: 3165362052362628217}
   - component: {fileID: 5658009482996929569}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ConcreteBridgeGirder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &3966017313337401603
 Transform:
@@ -646,12 +646,12 @@ GameObject:
   - component: {fileID: 7002195633838220920}
   - component: {fileID: 5091975350276931912}
   - component: {fileID: 5031698554390070456}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ConcreteBridgeSupport.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &5031698554390070463
 Transform:
