@@ -14,8 +14,8 @@ namespace Game_Manager.Score_System.Leaderboard
         [SerializeField] private List<TextMeshProUGUI> scores;
         [SerializeField] private List<GameObject> leaderboardList;
 
-        private readonly string publicLeaderboardKey = 
-            "77856b344686ba177464e866b70890f6ab590aa3f37a3d7e40684030ad3936f1";
+        private readonly string publicLeaderboardKey =
+            "3fb3319d7129aa5f65629f405d365badc21db613e235642f749e389f882d8a34";
 
         private void GetLeaderboard()
         {
