@@ -23,11 +23,13 @@ This game is available in itch.io. Hope you like the game, and let me knoe if it
 
 ## Gameplay Previews
 <p>
-<img src="https://github.com/EmilioBlacksmith/FROGGER-but-Realistic/assets/71019624/238fd9bc-83ed-4724-955b-a17d20a3d2b6" width=500px;>
-<img src="https://github.com/EmilioBlacksmith/FROGGER-but-Realistic/assets/71019624/2da22de8-abc8-4486-9643-28e57f0d4fd2" width=500px;>
-<img src="https://github.com/EmilioBlacksmith/FROGGER-but-Realistic/assets/71019624/da7173ba-c17f-4812-bbf8-7420b0f73f8b" width=500px;>
-<img src="https://github.com/EmilioBlacksmith/FROGGER-but-Realistic/assets/71019624/570aaf49-7d25-43d3-8ed4-0a6909a5a3e9" width=500px;>
+<img src="https://github.com/EmilioBlacksmith/FROGGER-but-Realistic/assets/71019624/238fd9bc-83ed-4724-955b-a17d20a3d2b6" width=400px;>
+<img src="https://github.com/EmilioBlacksmith/FROGGER-but-Realistic/assets/71019624/2da22de8-abc8-4486-9643-28e57f0d4fd2" width=400px;>
+<img src="https://github.com/EmilioBlacksmith/FROGGER-but-Realistic/assets/71019624/da7173ba-c17f-4812-bbf8-7420b0f73f8b" width=400px;>
+<img src="https://github.com/EmilioBlacksmith/FROGGER-but-Realistic/assets/71019624/570aaf49-7d25-43d3-8ed4-0a6909a5a3e9" width=400px;>
 </p>
 
-#### Credits for the Game
+### Credits for the Game
 Most assets used for this game weren't made by me, so props to the actual creators that brought my vision a reality.
+
+<a href="./Credits.md">Credits for the Assets Used</a>
