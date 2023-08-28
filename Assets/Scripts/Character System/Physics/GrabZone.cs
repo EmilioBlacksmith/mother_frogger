@@ -6,10 +6,12 @@ namespace Character_System.Physics
 {
     public class GrabZone : MonoBehaviour
     {
-        public Animator targetAnimator;
-        public GameObject grabbedObj;
-        public Rigidbody rigidBody;
-        public bool alreadyGrabbing = false;
+        [SerializeField] private Animator targetAnimator;
+        [SerializeField] private GameObject grabbedObj;
+        [SerializeField] private Rigidbody rigidBody;
+        [SerializeField] private Transform placingPosition;
+        private bool alreadyGrabbing = false;
+        private bool grabbing = false;
         private static readonly int Grabbing = Animator.StringToHash("Grabbing");
 
         private void Start()
@@ -19,16 +21,13 @@ namespace Character_System.Physics
 
         private void Update()
         {
-            if (CrashController.Instance.hasCrash) return;
-
-            if (Input.GetMouseButtonDown(0))
-            {
-                AudioSystem.Instance.PlaySoundEffect(AudioSystem.SoundEffect.GrabObj);
-            }
+            if (CrashController.Instance.hasCrash || PauseMenuSystem.Instance.isPaused) return;
         
-            if (Input.GetMouseButton(0))
+            if (Input.GetKey(KeyCode.Mouse0) && !grabbing)
             {
                 targetAnimator.SetBool(Grabbing, true);
+                AudioSystem.Instance.PlaySoundEffect(AudioSystem.SoundEffect.GrabObj);
+                grabbing = true;
 
                 if (grabbedObj != null && !alreadyGrabbing)
                 {
@@ -45,8 +44,8 @@ namespace Character_System.Physics
                 }
 
             }
-
-            if (Input.GetMouseButtonUp(0))
+           
+            if(!Input.GetKey(KeyCode.Mouse0) && grabbing)
             {
                 targetAnimator.SetBool(Grabbing, false);
                 AudioSystem.Instance.PlaySoundEffect(AudioSystem.SoundEffect.PlaceObj);
@@ -54,18 +53,20 @@ namespace Character_System.Physics
                 if (grabbedObj != null && alreadyGrabbing)
                 {
                     Destroy(grabbedObj.GetComponent<FixedJoint>());
-                
+
                     var component = grabbedObj.GetComponent<Collider>();
                     var rotationYObject = grabbedObj.transform.eulerAngles.y;
-                
-                    grabbedObj.transform.rotation = Quaternion.Euler(0,rotationYObject, 0);
+
+                    grabbedObj.transform.position = placingPosition.position;
+                    grabbedObj.transform.rotation = Quaternion.Euler(0, rotationYObject, 0);
                     ParticleSpawningSystem.Instance.SpawnPlacingObjectParticle(grabbedObj.transform);
                     component.isTrigger = false;
-                
+
                     alreadyGrabbing = false;
                 }
 
                 grabbedObj = null;
+                grabbing = false;
             }
         }
 
