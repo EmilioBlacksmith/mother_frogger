@@ -19,7 +19,7 @@ namespace Character_System
 
         private void Update()
         {
-            if(HealthSystem.Instance.IsGameOver) return;
+            if(HealthSystem.Instance.IsGameOver || PauseMenuSystem.Instance.isPaused) return;
         
             var position = hipTransform.position;
             transform.position = new Vector3(position.x, 0, position.z);

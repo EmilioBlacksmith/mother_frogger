@@ -21,7 +21,7 @@ namespace Character_System
 
         private void FixedUpdate()
         {
-            if (CrashController.Instance.hasCrash || HealthSystem.Instance.IsGameOver) return;
+            if (CrashController.Instance.hasCrash || HealthSystem.Instance.IsGameOver || PauseMenuSystem.Instance.isPaused) return;
         
             float horizontal = Input.GetAxisRaw("Horizontal");
             float vertical = Input.GetAxisRaw("Vertical");
