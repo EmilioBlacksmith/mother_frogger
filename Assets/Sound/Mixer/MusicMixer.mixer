@@ -37,7 +37,7 @@ AudioMixerController:
   m_UpdateMode: 0
   m_ExposedParameters:
   - guid: caa0486eb6bd42e4fb6934e6f92e2fb4
-    name: mainVolume
+    name: MasterVolume
   - guid: 41c861d1dc31d1e4a960069b43c3d85f
     name: pitchBend
   m_AudioMixerGroupViews:

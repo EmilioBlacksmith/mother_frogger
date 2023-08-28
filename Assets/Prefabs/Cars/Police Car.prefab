@@ -77,7 +77,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daf7949d740bb754aaaedd4173527e57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingSpeed: 25
+  startingSpeed: 20
   hasCrashed: 0
   collisionLayerInt: 6
 --- !u!65 &4632238153181564082
