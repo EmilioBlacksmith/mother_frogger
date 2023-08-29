@@ -1,6 +1,7 @@
 using Audio;
 using Particles;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Character_System.Physics
 {
@@ -23,7 +24,7 @@ namespace Character_System.Physics
         {
             if (CrashController.Instance.hasCrash || PauseMenuSystem.Instance.isPaused) return;
         
-            if (Input.GetKey(KeyCode.Mouse0) && !grabbing)
+            if ((Mouse.current.leftButton.wasPressedThisFrame || Gamepad.current.rightTrigger.wasPressedThisFrame) && !grabbing)
             {
                 targetAnimator.SetBool(Grabbing, true);
                 AudioSystem.Instance.PlaySoundEffect(AudioSystem.SoundEffect.GrabObj);
@@ -45,7 +46,7 @@ namespace Character_System.Physics
 
             }
            
-            if(!Input.GetKey(KeyCode.Mouse0) && grabbing)
+            if((Mouse.current.leftButton.wasReleasedThisFrame|| Gamepad.current.rightTrigger.wasReleasedThisFrame) && grabbing)
             {
                 targetAnimator.SetBool(Grabbing, false);
                 AudioSystem.Instance.PlaySoundEffect(AudioSystem.SoundEffect.PlaceObj);

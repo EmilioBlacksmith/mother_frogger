@@ -1,6 +1,8 @@
 using Character_System.HP_System;
 using Unity.Mathematics;
 using UnityEngine;
+using static UnityEngine.EventSystems.StandaloneInputModule;
+using UnityEngine.InputSystem;
 
 namespace Character_System
 {
@@ -8,6 +10,7 @@ namespace Character_System
     {
         public float rotationSpeed = 1f;
         private float _mouseX;
+        private Vector2 inputLook;
     
     
         [SerializeField] private Transform hipTransform;
@@ -28,11 +31,12 @@ namespace Character_System
 
         void CamControl()
         {
-            _mouseX += Input.GetAxis("Mouse X") * rotationSpeed * Time.deltaTime;
-        
-            Quaternion rootRotation = quaternion.Euler(0f, _mouseX, 0f);
+            transform.Rotate(Vector3.up, inputLook.x * rotationSpeed * Time.deltaTime);
+        }
 
-            transform.rotation = rootRotation;
+        public void OnLook(InputAction.CallbackContext value)
+        {
+            inputLook = value.ReadValue<Vector2>();
         }
     }
 }

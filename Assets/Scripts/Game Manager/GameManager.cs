@@ -8,6 +8,7 @@ using Game_Manager.Timer_System;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
@@ -29,6 +30,9 @@ namespace Game_Manager
         [Header("Player Score Submit")] 
         [SerializeField] private TMP_InputField playerName;
         [SerializeField] private TextMeshProUGUI playerScoreUI;
+
+        [Header("UI Button")]
+        [SerializeField] GameObject selectedAfterGameover;
         
         public int DifficultyLevel() => _difficultyLever;
         
@@ -86,6 +90,7 @@ namespace Game_Manager
             ScoreSystem.ShowGameOverUI();
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
+            EventSystem.current.SetSelectedGameObject(selectedAfterGameover);
             AudioSystem.Instance.ResetMainAudioSpeed();
             AudioSystem.Instance.PlaySoundEffect(AudioSystem.SoundEffect.GameOver);
         }
