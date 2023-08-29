@@ -2,6 +2,7 @@ using Character_System.HP_System;
 using Character_System.Physics;
 using Game_Manager;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Character_System
 {
@@ -19,14 +20,16 @@ namespace Character_System
         private const float TimeBetweenSteps = 1f;
         private static readonly int Walk = Animator.StringToHash("Walk");
 
+        private Vector2 inputMove;
+
         private void FixedUpdate()
         {
             if (CrashController.Instance.hasCrash || HealthSystem.Instance.IsGameOver || PauseMenuSystem.Instance.isPaused) return;
         
-            float horizontal = Input.GetAxisRaw("Horizontal");
-            float vertical = Input.GetAxisRaw("Vertical");
+            float horizontal = inputMove.x;
+            float vertical = inputMove.y;
 
-            Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
+            Vector3 direction = new Vector3(horizontal, 0f, vertical);
 
             if (direction.magnitude >= 0.1f)
             {
@@ -60,5 +63,11 @@ namespace Character_System
                     break;
             }
         }
+
+        public void OnMove(InputAction.CallbackContext value)
+        {
+            inputMove = value.ReadValue<Vector2>();
+        }
+
     }
 }

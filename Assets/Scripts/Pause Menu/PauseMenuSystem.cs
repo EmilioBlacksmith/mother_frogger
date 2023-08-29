@@ -2,11 +2,15 @@ using Character_System.HP_System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PauseMenuSystem : MonoBehaviour
 {
     [SerializeField] private GameObject PauseMenu;
+    [SerializeField] private Button buttonSelected;
 
     public bool isPaused { get; private set; }
 
@@ -24,10 +28,15 @@ public class PauseMenuSystem : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && !isPaused)
+        bool pressPause = Keyboard.current.escapeKey.wasPressedThisFrame 
+            || Gamepad.current.startButton.wasPressedThisFrame 
+            || Gamepad.current.selectButton.wasPressedThisFrame
+            || Keyboard.current.pKey.wasPressedThisFrame;
+
+        if (pressPause && !isPaused)
         {
             PauseGame();            
-        }else if (Input.GetKeyDown(KeyCode.Escape) && isPaused)
+        }else if (pressPause && isPaused)
         {
             ResumeGame();
         }
@@ -37,6 +46,7 @@ public class PauseMenuSystem : MonoBehaviour
     {
         Time.timeScale = 0;
         PauseMenu.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(buttonSelected.gameObject);
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
         isPaused = true;
