@@ -16,6 +16,8 @@ public class PauseMenuSystem : MonoBehaviour
 
     public static PauseMenuSystem Instance { get; private set; }
 
+    private bool pressPause;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -26,17 +28,14 @@ public class PauseMenuSystem : MonoBehaviour
         isPaused = false;
     }
 
-    private void Update()
-    {
-        bool pressPause = Keyboard.current.escapeKey.wasPressedThisFrame 
-            || Gamepad.current.startButton.wasPressedThisFrame 
-            || Gamepad.current.selectButton.wasPressedThisFrame
-            || Keyboard.current.pKey.wasPressedThisFrame;
 
-        if (pressPause && !isPaused)
+    public void OnPause(InputAction.CallbackContext value)
+    {
+        if (!isPaused)
         {
-            PauseGame();            
-        }else if (pressPause && isPaused)
+            PauseGame();
+        }
+        else if (isPaused)
         {
             ResumeGame();
         }

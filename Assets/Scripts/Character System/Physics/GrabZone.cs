@@ -14,6 +14,7 @@ namespace Character_System.Physics
         private bool alreadyGrabbing = false;
         private bool grabbing = false;
         private static readonly int Grabbing = Animator.StringToHash("Grabbing");
+        private bool onGrabPress = false;
 
         private void Start()
         {
@@ -23,8 +24,8 @@ namespace Character_System.Physics
         private void Update()
         {
             if (CrashController.Instance.hasCrash || PauseMenuSystem.Instance.isPaused) return;
-        
-            if ((Mouse.current.leftButton.wasPressedThisFrame || Gamepad.current.rightTrigger.wasPressedThisFrame) && !grabbing)
+            
+            if (onGrabPress && !grabbing)
             {
                 targetAnimator.SetBool(Grabbing, true);
                 AudioSystem.Instance.PlaySoundEffect(AudioSystem.SoundEffect.GrabObj);
@@ -46,7 +47,7 @@ namespace Character_System.Physics
 
             }
            
-            if((Mouse.current.leftButton.wasReleasedThisFrame|| Gamepad.current.rightTrigger.wasReleasedThisFrame) && grabbing)
+            if(!onGrabPress && grabbing)
             {
                 targetAnimator.SetBool(Grabbing, false);
                 AudioSystem.Instance.PlaySoundEffect(AudioSystem.SoundEffect.PlaceObj);
@@ -68,6 +69,19 @@ namespace Character_System.Physics
 
                 grabbedObj = null;
                 grabbing = false;
+            }
+            
+        }
+
+        public void OnGrab(InputAction.CallbackContext value)
+        {
+            if(value.ReadValue<float>() <= 0)
+            {
+                onGrabPress = false;
+            }
+            else
+            {
+                onGrabPress = true;
             }
         }
 
