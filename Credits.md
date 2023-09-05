@@ -32,5 +32,8 @@
 - Casino Slot Machine 8 (Epidemic Sound) - https://www.epidemicsound.com/track/FGXAe3Gcsi/
 - Flash Animation 14 (Epidemic Sound) - https://www.epidemicsound.com/track/9DLZXLjxA9/
 
+## Global Leaderboard External Tool
+I used Danial Jumagaliyev's Leaderboard Creator tool for the global leaderboard of this game - https://danqzq.itch.io/leaderboard-creator 
+
 ## Every Other Asset
 Every other asset was made by myself using tools like Audacity, Blender, and overall most assets were edited to be optimized for the final product.
