@@ -33,3 +33,5 @@ This game is available in itch.io or in this repo's releases tab. Hope you like 
 This game was developed using plenty of external assets, go support the original creators. Some of the models and textures were modified or optimized for the final product. Go check out the creators here:
 
 <a href="./Credits.md">Credits for the Assets Used</a>
+
+![Logo-](https://github.com/EmilioBlacksmith/FROGGER-but-with-Ragdolls/assets/71019624/b3004974-adb4-4094-8ca8-ebd375bcc175)
