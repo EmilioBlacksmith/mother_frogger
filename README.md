@@ -21,17 +21,7 @@ Well, you can survive with anything, there are multiple options, run like crazy 
 
 This game is available in itch.io or in this repo's releases tab. Hope you like the game, and let me know if it explodes or something.
 
-## Gameplay Previews
-<p>
-<img src="https://github.com/EmilioBlacksmith/FROGGER-but-Realistic/assets/71019624/238fd9bc-83ed-4724-955b-a17d20a3d2b6" width=400px;>
-<img src="https://github.com/EmilioBlacksmith/FROGGER-but-Realistic/assets/71019624/2da22de8-abc8-4486-9643-28e57f0d4fd2" width=400px;>
-<img src="https://github.com/EmilioBlacksmith/FROGGER-but-Realistic/assets/71019624/da7173ba-c17f-4812-bbf8-7420b0f73f8b" width=400px;>
-<img src="https://github.com/EmilioBlacksmith/FROGGER-but-Realistic/assets/71019624/570aaf49-7d25-43d3-8ed4-0a6909a5a3e9" width=400px;>
-</p>
-
 ### Credits for the Game
 This game was developed using plenty of external assets, go support the original creators. Some of the models and textures were modified or optimized for the final product. Go check out the creators here:
 
 <a href="./Credits.md">Credits for the Assets Used</a>
-
-![Logo-](https://github.com/EmilioBlacksmith/FROGGER-but-with-Ragdolls/assets/71019624/b3004974-adb4-4094-8ca8-ebd375bcc175)
